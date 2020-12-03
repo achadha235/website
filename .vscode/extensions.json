@@ -1,0 +1,7 @@
+{
+    "recommendations": [
+        "bradlc.vscode-tailwindcss",
+        "blanu.vscode-styled-jsx",
+        "esbenp.prettier-vscode"
+    ]
+}

@@ -1,0 +1,10 @@
+{
+  "files.exclude": {
+    "**/*.js": false,
+    "**/*.jsx": false,
+    "**/next.config.js": false,
+    ".next": false,
+  },
+  "editor.detectIndentation": true,
+  "editor.formatOnSave": true,
+}
