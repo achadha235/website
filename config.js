@@ -1,9 +1,8 @@
 const path = require('path');
 const dotenv = require('dotenv');
 
-let parsed, error;
-console.log(process.env);
-if (process.env.VERCEL_PLATFORM) {
+// Allows config to handle Vercel environment configurations
+if (process.env.VERCEL) {
   parsed = process.env;
 } else {
   const cfg = dotenv.config({
@@ -19,6 +18,4 @@ if (error) {
 
 module.exports = {
   NODE_ENV: String(parsed.NODE_ENV),
-  NEXT_DEV: parsed.NEXT_DEV === 'true',
-  PORT: Number(parsed.PORT) || 3001,
 };
