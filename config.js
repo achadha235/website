@@ -2,6 +2,7 @@ const path = require('path');
 const dotenv = require('dotenv');
 
 // Allows config to handle Vercel environment configurations
+let parsed, error;
 if (process.env.VERCEL) {
   parsed = process.env;
 } else {
