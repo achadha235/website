@@ -21,7 +21,7 @@ function App({ Component, pageProps, router }) {
   return (
     <>
       <Head>
-        <title>Niftycrates</title>
+        <title>Abhishek Chadha</title>
         <link rel='icon' type='image/svg+xml' href='/images/logo.svg' />
       </Head>
       <ThemeProvider theme={theme}>

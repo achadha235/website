@@ -1,7 +1,9 @@
 import { createMuiTheme } from '@material-ui/core/styles';
 import tailwindConfig from '../../tailwind.config';
 
-const fontFamily = ['Roboto', 'sans-serif'].join(',');
+const fontFamily =
+  'Inter, -apple-system, system-ui, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif';
+
 const theme = createMuiTheme({
   palette: {
     type: 'dark',
@@ -23,6 +25,10 @@ const theme = createMuiTheme({
     fontFamily,
     allVariants: {
       color: tailwindConfig.theme.colors.white,
+    },
+    h1: {
+      fontWeight: 800,
+      letterSpacing: -4,
     },
   },
   overrides: {
