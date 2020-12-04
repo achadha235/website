@@ -31,18 +31,24 @@ html {
 }
 
 ::-moz-selection {
-    background: yellow;
+    background: #ffff17f0;
     color: black;
 }
 
 ::selection {
-    background: yellow;
+    background: #ffff17f0;
     color: black;
 }
 
+.murdered-out-black-gradient {
+    background: -webkit-linear-gradient(360deg, #030303 10%, #1f1f1f 360%);
+    background: linear-gradient(360deg, #030303 10%, #1f1f1f 360%);
+}
+
 body {
-    height: 100%;
     background: #141419;
+    @extend .murdered-out-black-gradient;
+    height: 100%;
 }
 
 #__next {

@@ -22,13 +22,9 @@ const theme = createMuiTheme({
     },
   },
   typography: {
-    fontFamily,
     allVariants: {
+      fontFamily,
       color: tailwindConfig.theme.colors.white,
-    },
-    h1: {
-      fontWeight: 800,
-      letterSpacing: -4,
     },
   },
   overrides: {
@@ -51,9 +47,12 @@ const theme = createMuiTheme({
     },
     MuiButton: {
       text: {
-        fontSize: '0.75rem',
+        cursor: 'pointer !important',
+        fontSize: '0.65rem',
+        fontWeight: 300,
       },
       label: {
+        cursor: 'pointer !important',
         transform: 'translateX(1px)',
       },
       root: {

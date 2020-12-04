@@ -22,7 +22,7 @@ function App({ Component, pageProps, router }) {
     <>
       <Head>
         <title>Abhishek Chadha</title>
-        <link rel='icon' type='image/svg+xml' href='/images/logo.svg' />
+        <link rel='icon' href='images/favicon.svg'></link>
       </Head>
       <ThemeProvider theme={theme}>
         <AppContext.Provider value={appContext}>
