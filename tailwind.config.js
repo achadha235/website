@@ -6,7 +6,7 @@ module.exports = {
   },
   important: true,
   separator: ':',
-  purge: ['./pages/**/*.jsx', './styles/**/*.scss'],
+  purge: false,
   theme: {
     screens: {
       sm: '640px',
