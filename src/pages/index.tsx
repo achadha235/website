@@ -22,8 +22,14 @@ export function Home() {
   return (
     <Layout>
       <div className='w-full h-full flex justify-center items-center flex-col'>
-        <div className='max-w-2xl sm:px-6'>
-          <Typography variant='h3' className='tracking-tighter px-4'>
+        <Image
+          layout='intrinsic'
+          height={200}
+          width={200}
+          src='/images/bitmoji.png'
+        />
+        <div className='max-w-2xl md:px-10'>
+          <Typography variant='h3' className='tracking-tighter px-8'>
             Hey there! I'm <b>Abhishek</b>. <br /> I design and build software
             products.
           </Typography>

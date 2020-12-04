@@ -33,7 +33,7 @@ function Header({}) {
             <Button
               classes={{ label: classNames({ [className]: path === '/blog' }) }}
             >
-              Blog
+              Articles
             </Button>
           </Link>
 
