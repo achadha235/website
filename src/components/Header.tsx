@@ -20,7 +20,7 @@ function Header({ position }) {
             width={40}
           />
         </Link>
-        <div className='w-full flex flex-row justify-start max-w-sm mx-auto'>
+        <div className='w-full flex flex-row justify-evenly max-w-sm mx-auto'>
           <Link href='/'>
             <Button
               classes={{ label: classNames({ [className]: path === '/' }) }}
@@ -39,6 +39,7 @@ function Header({ position }) {
             </Button>
           </Link>
         </div>
+        <div style={{ width: 40, height: 40 }} />
       </Toolbar>
 
       {styles}

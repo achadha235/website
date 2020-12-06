@@ -10,14 +10,13 @@ import * as posts from 'src/manifest';
 import removePathPath from 'src/utils/removePagePath';
 
 function BlogHomepage() {
-  console.log(Object.values(posts));
   return (
     <Layout className='h-full flex justify-center'>
       <Head>
         <title>All Articles by Abhishek Chadha</title>
       </Head>
 
-      <div className='max-w-xl w-full mt-20 flex flex-col items-center'>
+      <div className='max-w-2xl w-full mt-20 flex flex-col items-center px-4'>
         <TextField
           InputProps={{
             endAdornment: (
@@ -32,7 +31,7 @@ function BlogHomepage() {
           className='w-full'
         />
 
-        <div id='categories' className='w-full'>
+        <div id='categories' className='w-full mt-3'>
           <Typography variant='h5'>Categories</Typography>
           <div>
             {Object.values(categories).map((categoryName) => (

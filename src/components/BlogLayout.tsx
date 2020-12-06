@@ -3,6 +3,7 @@ import moment from 'moment';
 import { MDXProvider } from '@mdx-js/react';
 import Layout from 'src/components/Layout';
 import components from 'src/mdx';
+import Head from 'next/head';
 
 interface BlogMetaComponentProps {
   meta: { title: string; author: string; publishedAt: string };
@@ -32,9 +33,12 @@ function BlogDate({ meta, className }: BlogMetaComponentProps) {
 function BlogLayout({ children, meta }) {
   return (
     <MDXProvider components={components}>
+      <Head>
+        <title>{meta.title}</title>
+      </Head>
       <Layout className='h-auto' headerPosition='relative'>
         <div className='w-full justify-center items-center flex my-10'>
-          <div className='max-w-2xl '>
+          <div className='max-w-2xl p-4'>
             <BlogTitle meta={meta} />
             <BlogAuthor meta={meta} className='mt-3' />
             <BlogDate meta={meta} className='text-sm color-grey-900' />
