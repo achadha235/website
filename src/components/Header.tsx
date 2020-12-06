@@ -5,11 +5,11 @@ import { useRouter } from 'next/router';
 import classNames from 'classnames';
 import css from 'styled-jsx/css';
 
-function Header({}) {
+function Header({ position }) {
   const router = useRouter();
   const path = router.pathname;
   return (
-    <AppBar position='fixed' variant='elevation' color='primary'>
+    <AppBar position={position || 'fixed'} variant='elevation' color='primary'>
       <Toolbar variant='dense'>
         <Link href='/'>
           <Image
@@ -20,34 +20,25 @@ function Header({}) {
             width={40}
           />
         </Link>
-        <div className='w-full flex flex-row justify-between max-w-sm mx-auto'>
+        <div className='w-full flex flex-row justify-start max-w-sm mx-auto'>
           <Link href='/'>
             <Button
               classes={{ label: classNames({ [className]: path === '/' }) }}
             >
-              Home
+              About Me
             </Button>
           </Link>
 
           <Link href='/blog'>
             <Button
-              classes={{ label: classNames({ [className]: path === '/blog' }) }}
+              classes={{
+                label: classNames({ [className]: path.indexOf('/blog') > -1 }),
+              }}
             >
               Articles
             </Button>
           </Link>
-
-          <Link href='/photos'>
-            <Button
-              classes={{
-                label: classNames({ [className]: path === '/photography' }),
-              }}
-            >
-              Photography
-            </Button>
-          </Link>
         </div>
-        <div style={{ height: 40, width: 40 }} />
       </Toolbar>
 
       {styles}

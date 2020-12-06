@@ -7,4 +7,14 @@
   },
   "editor.detectIndentation": true,
   "editor.formatOnSave": true,
+  "eslint.options": {
+    "extensions": [
+      ".js",
+      ".jsx",
+      ".md",
+      ".mdx",
+      ".ts",
+      ".tsx"
+    ]
+  }
 }

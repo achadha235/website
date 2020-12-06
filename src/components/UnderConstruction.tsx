@@ -3,11 +3,11 @@ import Image from 'next/image';
 
 function UnderConstruction() {
   return (
-    <div className='w-full h-full flex justify-center items-center flex-col'>
-      <Typography variant='h5' className='mb-5'>
+    <div className='w-full h-full flex justify-center items-center flex-col opacity-25'>
+      <Typography variant='caption' className='mb-5'>
         Under Construction
       </Typography>
-      <Image src='/images/underConstruction.svg' height={250} width={250} />
+      <Image src='/images/underConstruction.svg' height={100} width={100} />
     </div>
   );
 }

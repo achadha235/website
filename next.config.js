@@ -5,6 +5,7 @@ const {
 } = require('next/constants');
 
 const config = require('./config');
+const withMDX = require('@next/mdx')();
 
 const nextConfig = {
   target: 'server',
@@ -45,8 +46,8 @@ const phaseConfig = {
 // };
 
 module.exports = (phase, { defaultConfig }) => {
-  return {
+  return withMDX({
     ...nextConfig,
     ...(phaseConfig[phase] || {}),
-  };
+  });
 };

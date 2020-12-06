@@ -58,3 +58,19 @@ body {
 #__next>div {
     height: 100%;
 }
+
+hr {
+    @apply my-5;
+}
+
+h1,
+h2,
+h3 {
+    @apply my-5;
+}
+
+h4,
+h5,
+h6 {
+    @apply my-3;
+}

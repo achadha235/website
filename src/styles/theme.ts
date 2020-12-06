@@ -26,6 +26,10 @@ const theme = createMuiTheme({
       fontFamily,
       color: tailwindConfig.theme.colors.white,
     },
+    body1: {
+      fontWeight: 400,
+      lineHeight: '2rem',
+    },
   },
   overrides: {
     /** 

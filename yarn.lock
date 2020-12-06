@@ -1510,7 +1510,7 @@
     prop-types "^15.7.2"
     react-is "^16.8.0 || ^17.0.0"
 
-"@mdx-js/loader@^1.6.19":
+"@mdx-js/loader@^1.6.19", "@mdx-js/loader@^1.6.22":
   version "1.6.22"
   resolved "https://registry.yarnpkg.com/@mdx-js/loader/-/loader-1.6.22.tgz#d9e8fe7f8185ff13c9c8639c048b123e30d322c4"
   integrity sha512-9CjGwy595NaxAYp0hF9B/A0lH6C8Rms97e2JS9d3jVUtILn6pT5i5IV965ra3lIWc7Rs1GG1tBdVF7dCowYe6Q==
@@ -1566,6 +1566,11 @@
   version "10.0.3"
   resolved "https://registry.yarnpkg.com/@next/env/-/env-10.0.3.tgz#ef1077d78bf500855576f83090d6fb1ec96272f8"
   integrity sha512-xjJt2VXoSxAydskmt77nJuEtRL782E4ltaj5JtMzJ8YkNUMMu3d5ktpCR+Q3INKHF/RY6zHJ9QzyE3/s1ikbNg==
+
+"@next/mdx@^10.0.3":
+  version "10.0.3"
+  resolved "https://registry.yarnpkg.com/@next/mdx/-/mdx-10.0.3.tgz#91bbff794bb1f422b26170de6e5ac4f05f98dc19"
+  integrity sha512-KpvYJvp0s3h6p0GfMt2TJHqUsG1QaXXhmURgA4t7Ifz2W8gvTLzQGXYb4FvRHo5+pKwIofVfEi2sOQX2R0kU3g==
 
 "@next/polyfill-module@10.0.3":
   version "10.0.3"
@@ -8577,6 +8582,11 @@ modern-normalize@^1.0.0:
   resolved "https://registry.yarnpkg.com/modern-normalize/-/modern-normalize-1.0.0.tgz#539d84a1e141338b01b346f3e27396d0ed17601e"
   integrity sha512-1lM+BMLGuDfsdwf3rsgBSrxJwAZHFIrQ8YR61xIqdHo0uNKI9M52wNpHSrliZATJp51On6JD0AfRxd4YGSU0lw==
 
+moment@^2.29.1:
+  version "2.29.1"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.29.1.tgz#b2be769fa31940be9eeea6469c075e35006fa3d3"
+  integrity sha512-kHmoybcPV8Sqy59DwNDY3Jefr64lK/by/da0ViFcuA4DH0vQg5Q6Ze5VimxkfQNSC+Mls/Kx53s7TjP1RhFEDQ==
+
 move-concurrently@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/move-concurrently/-/move-concurrently-1.0.1.tgz#be2c005fda32e0b29af1f05d7c4b33214c701f92"
@@ -9716,6 +9726,11 @@ pretty-hrtime@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/pretty-hrtime/-/pretty-hrtime-1.0.3.tgz#b7e3ea42435a4c9b2759d99e0f201eb195802ee1"
   integrity sha1-t+PqQkNaTJsnWdmeDyAesZWALuE=
+
+prism-react-renderer@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/prism-react-renderer/-/prism-react-renderer-1.1.1.tgz#1c1be61b1eb9446a146ca7a50b7bcf36f2a70a44"
+  integrity sha512-MgMhSdHuHymNRqD6KM3eGS0PNqgK9q4QF5P0yoQQvpB6jNjeSAi3jcSAz0Sua/t9fa4xDOMar9HJbLa08gl9ug==
 
 prismjs@^1.21.0, prismjs@~1.22.0:
   version "1.22.0"
