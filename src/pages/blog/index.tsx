@@ -15,6 +15,7 @@ function BlogHomepage() {
       </Head>
 
       <div className='max-w-2xl w-full mt-20 flex flex-col items-center px-4'>
+        {/* Hiding Search and Categories for now. Uncomment once you have enough posts! */}
         <TextField
           InputProps={{
             endAdornment: (
@@ -26,10 +27,10 @@ function BlogHomepage() {
           size='small'
           placeholder='Enter keywords or query...'
           variant='outlined'
-          className='w-full'
+          className='w-full hidden'
         />
 
-        <div id='categories' className='w-full mt-3'>
+        <div id='categories' className='w-full mt-3 hidden'>
           <Typography variant='h5'>Categories</Typography>
           <div>
             {Object.values(categories).map((categoryName) => (
@@ -56,8 +57,6 @@ function BlogHomepage() {
           ))}
         </div>
       </div>
-
-      {/* <UnderConstruction /> */}
     </Layout>
   );
 }

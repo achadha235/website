@@ -65,13 +65,15 @@ hr {
 
 h1,
 h2,
-h3 {
-    @apply mb-3;
-}
-
-p,
+h3,
 h4,
 h5,
 h6 {
-    @apply mb-4;
+    @apply my-6;
+    @apply font-extrabold;
+}
+
+p.MuiTypography-root {
+    @apply my-6;
+    @apply font-thin;
 }
