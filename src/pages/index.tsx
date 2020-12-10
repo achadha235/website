@@ -8,6 +8,7 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 
 import { useRef, useEffect, MutableRefObject } from 'react';
 import Head from 'next/head';
+import Image from 'next/image';
 
 export function Home() {
   const linkRef: MutableRefObject<HTMLAnchorElement> = useRef();
@@ -65,50 +66,90 @@ export function Home() {
       <div className='w-full h-full flex justify-center items-center flex-col'>
         <div className='max-w-2xl'>
           <Typography variant='h5' className='font-thin'>
-            I was born in New Delhi but had the fortune to travel and live in
-            cities around the world like San Francisco, Vancouver, and
-            Pittsburgh.
-          </Typography>
-          <Typography variant='h5'>
-            Over the last 7 years, I've worked with world-class teams to ship
-            innovative products.
+            Over the last 7 years, I've been fortunate enough to travel around
+            the world and work on a variety of products with world-class teams.
           </Typography>
 
-          <div className='w-full grid grid-cols-3 gap-2'>
-            <div className='bg-white h-40 rounded-sm p-2 flex justify-start items-end'>
-              <Typography variant='body1' className='text-black font-bold m-0'>
-                Appcubator
-              </Typography>
-            </div>
-            <div className='bg-white h-40 rounded-sm p-2 flex justify-start items-end'>
-              <Typography variant='body1' className='text-black font-bold m-0'>
-                Street Jumper
-              </Typography>
-            </div>
-            <div className='bg-white h-40 rounded-sm p-2 flex justify-start items-end'>
-              <Typography variant='body1' className='text-black font-bold m-0'>
-                Games With Friends
-              </Typography>
-            </div>
-            <div className='bg-white h-40 rounded-sm p-2 flex justify-start items-end'>
-              <Typography variant='body1' className='text-black font-bold m-0'>
-                CarnegieBot
-              </Typography>
-            </div>
-            <div className='bg-white h-40 rounded-sm p-2 flex justify-start items-end'>
-              <Typography variant='body1' className='text-black font-bold m-0'>
-                CryptoKitties
-              </Typography>
-            </div>
-            <div className='bg-white h-40 rounded-sm p-2 flex justify-start items-end'>
-              <Typography variant='body1' className='text-black font-bold m-0'>
-                ZeroDown
-              </Typography>
-            </div>
+          <div className='w-full grid lg:grid-cols-3 gap-4 grid-cols-2 shadow-lg'>
+            <ExperienceCard
+              imageUrl='/images/resume/appcubator.png'
+              name='Appcubator'
+            />
+
+            <ExperienceCard
+              imageUrl='/images/resume/streetjumper.png'
+              name='Street Jumper'
+            />
+
+            <ExperienceCard
+              imageUrl='/images/resume/gwf.jpeg'
+              name='Games With Friends'
+            />
+
+            <ExperienceCard
+              imageUrl='/images/resume/carnegiebot.png'
+              name='CarnegieBot'
+            />
+
+            <ExperienceCard
+              imageUrl='/images/resume/cryptokitties.png'
+              name='CryptoKitties'
+            />
+
+            <ExperienceCard
+              imageUrl='/images/resume/zerodown.jpg'
+              name='ZeroDown'
+            />
           </div>
         </div>
       </div>
     </Layout>
+  );
+}
+
+function ExperienceCard({ imageUrl, name }) {
+  return (
+    <div className='container bg-white border-white border-1 border-solid h-40 rounded-sm p-2 pb-0 pl-0 pr-0 flex justify-start items-end hover:scale-105 transform ease-in-out transition-transform duration-75'>
+      <Typography
+        variant='body2'
+        className=' text-gray-800 font-normal tracking-tighter m-0 py-2 rounded rounded-b-sm w-full bg-white px-3 relative '
+      >
+        {name}
+      </Typography>
+      <style jsx>{`
+        .container {
+          position: relative;
+          height: 100%;
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          overflow: hidden;
+        }
+
+        .container::before {
+          content: '';
+          background-image: url(${imageUrl});
+          background-size: cover;
+          background-position: center;
+          position: absolute;
+          top: 0px;
+          right: 0px;
+          bottom: 0px;
+          left: 0px;
+          opacity: 0.75;
+
+          transition: all ease-in-out;
+          transition-duration: 250ms;
+        }
+
+        .container:hover::before {
+          transform: scale(1.1);
+          opacity: 1;
+        }
+      `}</style>
+    </div>
   );
 }
 
