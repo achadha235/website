@@ -11,7 +11,7 @@ interface LayoutProps {
 function Layout({ children, headerPosition, className }: LayoutProps) {
   return (
     <div
-      className={`h-screen w-full overflow-x-hidden overflow-y-scroll justify-center ${className}`}
+      className={` h-full w-full overflow-x-hidden justify-center ${className}`}
     >
       <NextNprogress
         color='#29D'

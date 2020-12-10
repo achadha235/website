@@ -25,7 +25,7 @@ export function Home() {
       <Head>
         <title>Abhishek Chadha - Blog, Website and more</title>
       </Head>
-      <div className='w-full h-full flex justify-center items-center flex-col'>
+      <div className='w-full min-h-screen flex justify-center items-center flex-col'>
         <div className='max-w-2xl'>
           <Typography variant='h3' className='tracking-tighter'>
             Hey there! I'm <b>Abhishek</b>. <br /> I design and build software
@@ -63,7 +63,7 @@ export function Home() {
         </div>
       </div>
 
-      <div className='w-full h-full flex justify-center items-center flex-col'>
+      <div className='w-full min-h-screen flex justify-center items-center flex-col'>
         <div className='max-w-2xl'>
           <Typography variant='h5' className='font-thin'>
             Over the last 7 years, I've been fortunate enough to travel around
