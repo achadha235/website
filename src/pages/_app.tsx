@@ -23,6 +23,22 @@ function App({ Component, pageProps, router }) {
       <Head>
         <title>Abhishek Chadha</title>
         <link rel='icon' href='images/favicon.svg'></link>
+
+        <script
+          async
+          src='https://www.googletagmanager.com/gtag/js?id=G-L590B8S404'
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+    
+              gtag('config', 'G-L590B8S404');
+                  `,
+          }}
+        />
       </Head>
       <ThemeProvider theme={theme}>
         <AppContext.Provider value={appContext}>
