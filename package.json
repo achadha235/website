@@ -30,6 +30,7 @@
     "@material-ui/pickers": "^3.2.10",
     "@mdx-js/loader": "^1.6.22",
     "@next/mdx": "^10.0.3",
+    "@segment/snippet": "^4.13.1",
     "@storybook/addon-actions": "^6.1.9",
     "@storybook/addon-essentials": "^6.1.9",
     "@storybook/addon-links": "^6.1.9",

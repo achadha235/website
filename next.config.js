@@ -37,14 +37,6 @@ const phaseConfig = {
   },
 };
 
-// const webpackConfig = (config, options) => {
-//   config.node = {
-//     fs: "empty"
-//   };
-//   config.plugins.push(new DecoratorsPlugin({ legacy: true }))
-//   return config;
-// };
-
 module.exports = (phase, { defaultConfig }) => {
   return withMDX({
     ...nextConfig,

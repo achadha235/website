@@ -19,4 +19,6 @@ if (error) {
 
 module.exports = {
   NODE_ENV: String(parsed.NODE_ENV),
+  ANALYTICS_WRITE_KEY: String(parsed.ANALYTICS_WRITE_KEY),
+  GA_MEASUREMENT_ID: String(parsed.GA_MEASUREMENT_ID),
 };

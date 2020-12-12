@@ -6,6 +6,11 @@ declare global {
   // }
 }
 
+interface Window {
+  analytics: any;
+  dataLayer: any;
+}
+
 interface BlogMeta {
   title: string;
   author: string;
