@@ -10,6 +10,8 @@ import { useRef, useEffect, MutableRefObject } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 
+import css from 'styled-jsx/css';
+
 export function Home() {
   const linkRef: MutableRefObject<HTMLAnchorElement> = useRef();
   useEffect(() => {
@@ -108,45 +110,42 @@ export function Home() {
 }
 
 function ExperienceCard({ imageUrl, name }) {
+  const { className, styles } = css.resolve`
+    * {
+      background: rgb(255, 255, 255);
+      background: linear-gradient(
+        0deg,
+        rgba(255, 255, 255, 0.8897934173669468) 0%,
+        rgba(255, 255, 255, 0.3883928571428571) 77%,
+        rgba(255, 255, 255, 0) 93%
+      );
+    }
+  `;
   return (
-    <div className='container bg-white border-white border-1 border-solid h-40 rounded-sm p-2 pb-0 pl-0 pr-0 flex justify-start items-end hover:scale-105 transform ease-in-out transition-transform duration-75'>
+    <div className='container bg-white border-white border-1 border-solid h-40 rounded-sm p-2 pb-0 pl-0 pr-0 pt-0 flex flex-col justify-end items-center hover:scale-105 transform ease-in-out transition-transform duration-75 cursor-pointer'>
+      <Image
+        layout='fill'
+        className={`object-center object-cover `}
+        src={imageUrl}
+        alt={name}
+      />
       <Typography
         variant='body2'
-        className=' text-gray-800 font-normal tracking-tighter m-0 py-2 rounded rounded-b-sm w-full bg-white px-3 relative '
+        className={`${className} font-semibold text-gray-800 font-normal tracking-tighter m-0 py-2 rounded rounded-b-sm w-full  px-3 relative `}
       >
         {name}
       </Typography>
-      <style jsx>{`
-        .container {
-          position: relative;
-          height: 100%;
-          width: 100%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          cursor: pointer;
-          overflow: hidden;
+      {styles}
+      <style global jsx>{`
+        .container > div > img {
+          opacity: 0.6;
+          scale: scale(1);
+          transition: all 250ms ease-in-out;
         }
 
-        .container::before {
-          content: '';
-          background-image: url(${imageUrl});
-          background-size: cover;
-          background-position: center;
-          position: absolute;
-          top: 0px;
-          right: 0px;
-          bottom: 0px;
-          left: 0px;
-          opacity: 0.75;
-
-          transition: all ease-in-out;
-          transition-duration: 250ms;
-        }
-
-        .container:hover::before {
-          transform: scale(1.1);
+        .container:hover > div > img {
           opacity: 1;
+          transform: scale(1.05);
         }
       `}</style>
     </div>

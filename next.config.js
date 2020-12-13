@@ -16,6 +16,10 @@ const nextConfig = {
   },
   publicRuntimeConfig: {
     // Will be available on both server and client...do not add secrets
+
+    NODE_ENV: config.NODE_ENV,
+    ANALYTICS_WRITE_KEY: config.ANALYTICS_WRITE_KEY,
+    GA_MEASUREMENT_ID: config.GA_MEASUREMENT_ID,
   },
 };
 
