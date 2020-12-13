@@ -72,7 +72,7 @@ export function Home() {
             the world and work on a variety of products with world-class teams.
           </Typography>
 
-          <div className='w-full grid lg:grid-cols-3 gap-4 grid-cols-2 shadow-lg'>
+          <div className='w-full grid lg:grid-cols-3 gap-4 grid-cols-2'>
             <ExperienceCard
               imageUrl='/images/resume/appcubator.png'
               name='Appcubator'
@@ -112,17 +112,19 @@ export function Home() {
 function ExperienceCard({ imageUrl, name }) {
   const { className, styles } = css.resolve`
     * {
-      background: rgb(255, 255, 255);
+      background: rgb(0, 0, 0);
       background: linear-gradient(
         0deg,
-        rgba(255, 255, 255, 0.8897934173669468) 0%,
-        rgba(255, 255, 255, 0.3883928571428571) 77%,
-        rgba(255, 255, 255, 0) 93%
+        rgba(0, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 0.7077205882352942) 41%,
+        rgba(0, 0, 0, 0.5284488795518207) 64%,
+        rgba(0, 0, 0, 0) 100%
       );
     }
   `;
   return (
-    <div className='container bg-white border-white border-1 border-solid h-40 rounded-sm p-2 pb-0 pl-0 pr-0 pt-0 flex flex-col justify-end items-center hover:scale-105 transform ease-in-out transition-transform duration-75 cursor-pointer'>
+    <div className='container h-40 p-2 pb-0 pl-0 pr-0 pt-0 flex flex-col justify-end items-center hover:scale-105 transform ease-in-out transition-transform duration-75 cursor-pointer overflow-hidden rounded-sm '>
+      <div className='w-full h-full bg-white' />
       <Image
         layout='fill'
         className={`object-center object-cover `}
@@ -131,7 +133,7 @@ function ExperienceCard({ imageUrl, name }) {
       />
       <Typography
         variant='body2'
-        className={`${className} font-semibold text-gray-800 font-normal tracking-tighter m-0 py-2 rounded rounded-b-sm w-full  px-3 relative `}
+        className={`${className} font-semibold tracking-tighter m-0 py-2 w-full rounded-b-sm px-3 relative `}
       >
         {name}
       </Typography>
@@ -140,7 +142,7 @@ function ExperienceCard({ imageUrl, name }) {
         .container > div > img {
           opacity: 0.6;
           scale: scale(1);
-          transition: all 250ms ease-in-out;
+          transition: all 40ms ease-in-out;
         }
 
         .container:hover > div > img {
