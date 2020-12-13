@@ -3,6 +3,7 @@ import Head from 'next/head';
 import getConfig from 'next/config';
 import Router from 'next/router';
 import type { NextWebVitalsMetric } from 'next/app';
+import { isNil } from 'lodash';
 
 import { createContext, useState } from 'react';
 import { ThemeProvider } from '@material-ui/core/styles';
@@ -54,7 +55,11 @@ function renderGASnippet() {
 function App({ Component, pageProps, router }) {
   const cookieTimeoutSec = 10 * 365 * 24 * 60 * 60;
   const cookies = parseCookies();
-  const [useCookies, setUseCookies] = useState(cookies.enabledCookies || false);
+  const [useCookies, setUseCookies] = useState(
+    isNil(cookies.enabledCookies)
+      ? cookies.enabledCookies
+      : cookies.enabledCookies === 'true'
+  );
   const renderAnalytics = () => (
     <>
       <script
@@ -77,15 +82,23 @@ function App({ Component, pageProps, router }) {
         <AppContext.Provider value={appContext}>
           <Component key={router.route} {...pageProps} />
         </AppContext.Provider>
-        <CookieModal
-          cookiesAreEnabled={useCookies}
-          enableCookies={() => {
-            setUseCookies(true);
-            setCookie(null, 'enabledCookies', 'true', {
-              maxAge: cookieTimeoutSec,
-            });
-          }}
-        />
+        {isNil(cookies.enabledCookies) && (
+          <CookieModal
+            showPrompt={isNil(useCookies)}
+            disableCookies={() => {
+              setUseCookies(false);
+              setCookie(null, 'enabledCookies', 'false', {
+                maxAge: cookieTimeoutSec,
+              });
+            }}
+            enableCookies={() => {
+              setUseCookies(true);
+              setCookie(null, 'enabledCookies', 'true', {
+                maxAge: cookieTimeoutSec,
+              });
+            }}
+          />
+        )}
       </ThemeProvider>
     </>
   );
