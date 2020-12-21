@@ -4,7 +4,14 @@ import CodeBlock from 'src/components/CodeBlock';
 import { List, ListItem } from '@material-ui/core';
 
 export default {
-  img: Image,
+  img: ({ src, alt }) => (
+    <Image
+      src={src}
+      layout={alt.split('.')[0]}
+      width={alt.split('.')[1]}
+      height={alt.split('.')[2]}
+    />
+  ),
   h1: ({ children }) => <Typography variant='h1'>{children}</Typography>,
   h2: ({ children }) => <Typography variant='h2'>{children}</Typography>,
   h3: ({ children }) => <Typography variant='h3'>{children}</Typography>,
