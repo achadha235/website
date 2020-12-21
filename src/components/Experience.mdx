@@ -9,12 +9,56 @@ import components from 'src/mdx';
 
 ### Appcubator
 
-In 2014 I joined my friends Karan and Illter
+##### Low-code platform for Django applications
+
+<iframe
+  width={'100%'}
+  height='415'
+  src='https://www.youtube-nocookie.com/embed/hZTx0vXUo34?controls=0'
+  frameborder='0'
+  allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;'
+  allowfullscreen
+/>
+
+In 2012, I was invited by my friends Karan Sikka and Ilter Canberk to join their
+startup as a founding engineer. Appcubator had just participated in the
+[YC W13](https://www.ycdb.co/company/appcubator) batch and was one of the
+earliest low-code solutions to hit the market. Our goal was to create "the
+easiest way to prototype" and allow non-technical founders to create and deploy
+working MVPs using a simple drag-n-drop interface. Unlike other no-code /
+low-code solutions at the time, we allowed users to export fully readably code
+and continue developing their apps with their own developers.
+
+My job was to develop the plugin editor our team used to create and integrate
+functionality into applications. This allowed our users quickly extend their app
+with 3rd party integrations and common recipes.
+
+After struggling for a year to find product-market fit, our team decided to
+phase out operations and open-source our code in 2014. Working on Appcubator was
+one of the most formative experiences of my career. With Appcubator, I learnt
+how to work clients, work on tight deadlines, made difficult tradeoffs and
+visited San Francisco for the very first time..
 
 </ExperienceCard>
 
+<ExperienceCard
+  imageUrl='/images/resume/streetjumper.png'
+  name='Street Jumper'
+/>
+
+<ExperienceCard imageUrl='/images/resume/gwf.jpeg' name='Games With Friends' />
+
+<ExperienceCard imageUrl='/images/resume/carnegiebot.png' name='CarnegieBot' />
+
+<ExperienceCard
+  imageUrl='/images/resume/cryptokitties.png'
+  name='CryptoKitties'
+/>
+
+<ExperienceCard imageUrl='/images/resume/zerodown.jpg' name='ZeroDown' />
+
 export default ({ children }) => (
   <MDXProvider components={components}>
-    <div>{children}</div>
+    <React.Fragment>{children}</React.Fragment>
   </MDXProvider>
 );

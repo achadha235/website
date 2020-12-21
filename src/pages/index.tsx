@@ -33,38 +33,6 @@ export function Home() {
 
           <div className='w-full grid lg:grid-cols-3 gap-4 grid-cols-2'>
             <Experience />
-
-            <ExperienceCard
-              imageUrl='/images/resume/appcubator.png'
-              name='Appcubator'
-            >
-              <Typography variant='h1'>Hello world</Typography>
-            </ExperienceCard>
-
-            <ExperienceCard
-              imageUrl='/images/resume/streetjumper.png'
-              name='Street Jumper'
-            />
-
-            <ExperienceCard
-              imageUrl='/images/resume/gwf.jpeg'
-              name='Games With Friends'
-            />
-
-            <ExperienceCard
-              imageUrl='/images/resume/carnegiebot.png'
-              name='CarnegieBot'
-            />
-
-            <ExperienceCard
-              imageUrl='/images/resume/cryptokitties.png'
-              name='CryptoKitties'
-            />
-
-            <ExperienceCard
-              imageUrl='/images/resume/zerodown.jpg'
-              name='ZeroDown'
-            />
           </div>
         </div>
       </div>

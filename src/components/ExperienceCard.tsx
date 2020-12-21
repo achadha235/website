@@ -71,7 +71,7 @@ function ExperienceCard({ imageUrl, name, children }: ExperienceCardProps) {
       >
         <Fade in={open}>
           <Paper
-            className='max-w-2xl w-full min-h-full h-full p-4 bg-black'
+            className='max-w-2xl w-full min-h-full h-full p-4 bg-black outline-none'
             variant='outlined'
           >
             <div className='w-full flex justify-end'>
