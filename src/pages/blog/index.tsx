@@ -37,6 +37,7 @@ function BlogHomepage({ blogPosts }) {
           <div>
             {Object.values(categories).map((categoryName) => (
               <Chip
+                key={categoryName}
                 label={categoryName}
                 onClick={() => {}}
                 variant='outlined'
