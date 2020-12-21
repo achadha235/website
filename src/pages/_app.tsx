@@ -53,6 +53,7 @@ function renderGASnippet() {
 }
 
 function App({ Component, pageProps, router }) {
+  const isProduction = NODE_ENV === 'production';
   const cookieTimeoutSec = 10 * 365 * 24 * 60 * 60;
   const cookies = parseCookies();
   const [useCookies, setUseCookies] = useState(
@@ -76,13 +77,13 @@ function App({ Component, pageProps, router }) {
       <Head>
         <title>Abhishek Chadha</title>
         <link rel='icon' href='images/favicon.svg'></link>
-        {useCookies && renderAnalytics()}
+        {useCookies && isProduction && renderAnalytics()}
       </Head>
       <ThemeProvider theme={theme}>
         <AppContext.Provider value={appContext}>
           <Component key={router.route} {...pageProps} />
         </AppContext.Provider>
-        {isNil(cookies.enabledCookies) && (
+        {isNil(cookies.enabledCookies) && isProduction && (
           <CookieModal
             showPrompt={isNil(useCookies)}
             disableCookies={() => {

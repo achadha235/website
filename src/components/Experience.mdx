@@ -1,0 +1,20 @@
+import ExperienceCard from 'src/components/ExperienceCard';
+import { MDXProvider } from '@mdx-js/react';
+import components from 'src/mdx';
+
+<ExperienceCard
+    imageUrl='/images/resume/appcubator.png'
+    name='Appcubator'
+>
+
+### Appcubator
+
+In 2014 I joined my friends Karan and Illter
+
+</ExperienceCard>
+
+export default ({ children }) => (
+  <MDXProvider components={components}>
+    <div>{children}</div>
+  </MDXProvider>
+);
