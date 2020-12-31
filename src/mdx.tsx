@@ -2,8 +2,14 @@ import { Typography } from '@material-ui/core';
 import Image from 'next/image';
 import CodeBlock from 'src/components/CodeBlock';
 import { List, ListItem } from '@material-ui/core';
+import Link from 'next/link';
 
 export default {
+  a: ({ href, children }) => (
+    <Link href={href}>
+      <a target='_blank'> {children}</a>
+    </Link>
+  ),
   img: ({ src, alt }) => (
     <Image
       src={src}
