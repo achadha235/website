@@ -3,6 +3,7 @@ import NextNprogress from 'nextjs-progressbar';
 import { AppBarProps } from '@material-ui/core';
 import { AnimateSharedLayout, AnimatePresence, motion } from 'framer-motion';
 import { useRouter } from 'next/router';
+import Background from './Background';
 
 interface LayoutProps {
   children?: any;
@@ -22,7 +23,19 @@ function Layout({ children, headerPosition, className }: LayoutProps) {
         stopDelayMs={200}
         height={3}
       />
-
+      {/* <img
+        src='/images/gradient.svg'
+        className='w-full h-screen'
+        style={{
+          transform: 'scale(6)',
+          position: 'fixed',
+          zIndex: -1,
+        }}
+      /> */}
+      <Background
+        className='w-screen h-screen fixed left-0'
+        style={{ zIndex: -1 }}
+      />
       <AnimateSharedLayout type='crossfade'>
         <AnimatePresence exitBeforeEnter={true}>
           <Header position={headerPosition} />

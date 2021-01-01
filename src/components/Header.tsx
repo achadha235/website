@@ -11,15 +11,14 @@ function Header({ position }) {
   return (
     <AppBar position={position || 'fixed'} variant='elevation' color='primary'>
       <Toolbar variant='dense'>
-        <Link href='/'>
-          <Image
-            className='cursor-pointer'
-            src='/images/logo.svg'
-            alt='AC'
-            height={40}
-            width={40}
-          />
-        </Link>
+        <Image
+          onClick={() => router.push('/')}
+          className='cursor-pointer'
+          src='/images/logo.svg'
+          alt='AC'
+          height={40}
+          width={40}
+        />
         <div className='w-full flex flex-row justify-evenly max-w-sm mx-auto'>
           <Link href='/'>
             <Button
@@ -28,7 +27,6 @@ function Header({ position }) {
               About Me
             </Button>
           </Link>
-
           <Link href='/blog'>
             <Button
               classes={{
@@ -41,7 +39,6 @@ function Header({ position }) {
         </div>
         <div style={{ width: 40, height: 40 }} />
       </Toolbar>
-
       {styles}
     </AppBar>
   );

@@ -31,7 +31,6 @@ export function Home() {
                   software products.
                 </Typography>
               </motion.div>
-
               <motion.div
                 className='w-full flex flex-row justify-between mt-12'
                 variants={item}
@@ -42,14 +41,12 @@ export function Home() {
           </AnimatePresence>
         </AnimateSharedLayout>
       </div>
-
       <div className='w-full min-h-screen flex justify-center items-center flex-col'>
         <div className='max-w-2xl'>
           <Typography variant='h5' className='font-thin'>
             Over the last 7 years, I've been fortunate enough to travel around
             the world and work on a variety of products with world-class teams.
           </Typography>
-
           <div className='w-full grid lg:grid-cols-3 gap-4 grid-cols-2'>
             <Experience />
           </div>
