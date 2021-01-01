@@ -19,22 +19,31 @@ function ContactDetails() {
       <a
         href='https://www.linkedin.com/in/abhishek-chadha-53b09364/'
         target='_blank'
+        className='no-underline outline-none'
       >
         <Typography variant='body1' className='tracking-tighter px-4'>
           <LinkedInIcon /> LinkedIn
         </Typography>
       </a>
-      <a href='http://github.com/achadha235' target='_blank'>
+      <a
+        href='http://github.com/achadha235'
+        target='_blank'
+        className='no-underline outline-none'
+      >
         <Typography variant='body1' className='tracking-tighter px-4'>
           <GitHubIcon /> GitHub
         </Typography>
       </a>
-      <a href='http://twitter.com/achadha235' target='_blank'>
+      <a
+        href='http://twitter.com/achadha235'
+        target='_blank'
+        className='no-underline outline-none'
+      >
         <Typography variant='body1' className='tracking-tighter px-4'>
           <TwitterIcon /> Twitter
         </Typography>
       </a>
-      <a ref={linkRef}>
+      <a ref={linkRef} className='no-underline outline-none'>
         <Typography variant='body1' className='tracking-tighter px-4'>
           <MailIcon /> Email
         </Typography>

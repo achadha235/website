@@ -1,9 +1,14 @@
 import Head from 'next/head';
 import { Typography } from '@material-ui/core';
 import Layout from 'src/components/Layout';
-import ExperienceCard from 'src/components/ExperienceCard';
 import ContactDetails from 'src/components/ContactDetails';
-import Experience from 'src/components/Experience.mdx';
+import { AnimateSharedLayout, AnimatePresence, motion } from 'framer-motion';
+import dynamic from 'next/dynamic';
+
+const Experience = dynamic(
+  () => import('src/components/Experience.mdx' as any),
+  { ssr: false, loading: () => <p>...</p> }
+);
 
 export function Home() {
   return (
@@ -12,16 +17,30 @@ export function Home() {
         <title>Abhishek Chadha - Blog, Website and more</title>
       </Head>
       <div className='w-full min-h-screen flex justify-center items-center flex-col'>
-        <div className='max-w-2xl'>
-          <Typography variant='h3' className='tracking-tighter'>
-            Hey there! I'm <b>Abhishek</b>. <br /> I design and build software
-            products.
-          </Typography>
+        <AnimateSharedLayout type='crossfade'>
+          <AnimatePresence exitBeforeEnter={true}>
+            <motion.div
+              className='max-w-2xl'
+              variants={container}
+              initial='hidden'
+              animate='show'
+            >
+              <motion.div variants={item}>
+                <Typography variant='h3' className='tracking-tighter'>
+                  Hey there! I'm <b>Abhishek</b>. <br /> I design and build
+                  software products.
+                </Typography>
+              </motion.div>
 
-          <div className='w-full flex flex-row justify-between mt-12'>
-            <ContactDetails />
-          </div>
-        </div>
+              <motion.div
+                className='w-full flex flex-row justify-between mt-12'
+                variants={item}
+              >
+                <ContactDetails />
+              </motion.div>
+            </motion.div>
+          </AnimatePresence>
+        </AnimateSharedLayout>
       </div>
 
       <div className='w-full min-h-screen flex justify-center items-center flex-col'>
@@ -39,5 +58,17 @@ export function Home() {
     </Layout>
   );
 }
+
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.3,
+    },
+  },
+};
+
+const item = { hidden: { opacity: 0 }, show: { opacity: 1 } };
 
 export default Home;
