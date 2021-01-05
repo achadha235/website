@@ -3,7 +3,9 @@ const purgecss = [
   {
     content: [
       './src/components/**/*.tsx',
+      './src/components/**/*.mdx',
       './src/pages/**/*.tsx',
+      './src/pages/**/*.mdx',
       './src/styles/**/*.scss',
     ],
     defaultExtractor: (content) => content.match(/[\w-/:]+(?<!:)/g) || [],
@@ -15,6 +17,7 @@ module.exports = {
     'postcss-import',
     'tailwindcss',
     'autoprefixer',
-    ...(process.env.NODE_ENV === 'production' ? [purgecss] : []),
+    purgecss,
+    // ...(process.env.NODE_ENV === 'production' ? [purgecss] : []),
   ],
 };
