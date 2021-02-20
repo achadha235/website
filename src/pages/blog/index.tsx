@@ -58,6 +58,10 @@ function BlogHomepage({ blogPosts }) {
               </div>
             </Link>
           ))}
+
+          {blogPosts.length === 0 && (
+            <Typography variant='h5'>No posts yet</Typography>
+          )}
         </div>
       </div>
     </Layout>
@@ -66,12 +70,16 @@ function BlogHomepage({ blogPosts }) {
 
 export async function getStaticProps() {
   const blogPaths = path.join(process.cwd(), 'src/pages/blog/**/*.mdx');
+  const blogPosts = glob
+    .sync(blogPaths)
+    .map((filePath) => ({
+      ...getMetaObject(filePath),
+      path: getSlug(filePath),
+    }))
+    .filter((blogPost) => blogPost.hidden !== true);
   return {
     props: {
-      blogPosts: glob.sync(blogPaths).map((filePath) => ({
-        ...getMetaObject(filePath),
-        path: getSlug(filePath),
-      })),
+      blogPosts,
     },
   };
 }
