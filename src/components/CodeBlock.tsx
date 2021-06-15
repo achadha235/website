@@ -1,5 +1,4 @@
 import Highlight, { defaultProps } from 'prism-react-renderer';
-
 function CodeBlock({ children, className }) {
   const language = (className ?? '').replace(/language-/, '');
   return (
