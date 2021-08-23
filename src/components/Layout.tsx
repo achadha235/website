@@ -23,7 +23,7 @@ function Layout({ children, headerPosition, className }: LayoutProps) {
         stopDelayMs={200}
         height={3}
       />
-      {/* <img
+      <img
         src='/images/gradient.svg'
         className='w-full h-screen'
         style={{
@@ -31,11 +31,8 @@ function Layout({ children, headerPosition, className }: LayoutProps) {
           position: 'fixed',
           zIndex: -1,
         }}
-      /> */}
-      <Background
-        className='w-screen h-screen fixed left-0'
-        style={{ zIndex: -1 }}
       />
+
       <AnimateSharedLayout type='crossfade'>
         <AnimatePresence exitBeforeEnter={true}>
           <Header position={headerPosition} />

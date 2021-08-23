@@ -4,6 +4,7 @@ import Layout from 'src/components/Layout';
 import ContactDetails from 'src/components/ContactDetails';
 import { AnimateSharedLayout, AnimatePresence, motion } from 'framer-motion';
 import dynamic from 'next/dynamic';
+import Background from 'src/components/Background';
 
 const Experience = dynamic(
   () => import('src/components/Experience.mdx' as any),
