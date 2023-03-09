@@ -27,6 +27,7 @@ function Layout({ children, headerPosition, className }: LayoutProps) {
         src='/images/gradient.svg'
         className='w-full h-screen'
         style={{
+          filter: 'grayscale(100%) brightness(0.15)',
           transform: 'scale(6)',
           position: 'fixed',
           zIndex: -1,

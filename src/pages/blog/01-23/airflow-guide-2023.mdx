@@ -1,0 +1,72 @@
+import BlogLayout from 'src/components/BlogLayout';
+
+export const meta = {
+  title: 'Airflow Guide to 2023',
+  author: 'Abhishek Chadha',
+  hidden: false,
+  publishedAt: '2023-01-14',
+  banner: `Learn how to create a production-ready data workflow using Python and Google Cloud.`,
+  categories: ['Python', 'Data', 'Programming'],
+};
+
+#### Summary
+
+Apache Airflow is popular workflow management system for creating data
+pipelines. It can be extremely useful for creating and running complex data
+processes at scale. In this guide, you will learn how to:
+- Learn about Airflow and when to use it
+- Set up a local Airflow 2.2 dev environment using Docker
+- Author a basic data Airflow DAG using the Taskflow API to perform operations on a Postgres database and Google Clound.
+- Write unit and integration tests for your code
+- Learn about options to run Airflow in production
+
+Table of contents When to use Airflow Core Airflow Concepts Installation and
+setup Creating your first DAG Running your first DAG Running Airflow in
+production Deploying to Google Cloud Composer
+
+When to use Airflow Airflow does a few things very well. Provides a clean and
+powerful API to author complex data pipelines Runs a distributed, fault-tolerant
+system of workers and schedulers to run your tasks scalable Efficiently pools
+and manages common resources like workers, database connections, etc. Provides a
+robust and well designed web UI and CLI for configuration and operations
+
+When to choose Airflow You already know Python well You need horizontal
+scalability You want to be able to set resource allocation limits with great
+granularity Your workflow is a complex, multi-stage You need complex logic
+around backfilling / retrying / rescheduling jobs Your workflow long-running
+operation You want a full-fledged, production ready job management UI
+
+When not to choose Airflow You are on a tight(er) budget You don't already know
+Python Your workflow is relatively simple or short lived You will only run a few
+jobs in parallel You don't need complex resource / concurrency management
+
+Key Concepts DAGS and Tasks All Airflow workflows are represented as a set of
+Tasks arranged in a DAG.  A task is the fundamental unit of execution within
+Airflow. Essentially, it is a special piece of code - usually Python - that can
+be run within Airflow. Multiple tasks can be arranged into a DAG to create a
+full, multi-step workflow definition. You can configure each task independently
+and define it's behaviour. For example - you can tell Airflow that the
+"send_error_alert" task that is skipped if all previous tasks completed
+successfully and should only trigger if one of the upstream tasks failed.  DAGs
+and Tasks have their own unique ID that can be used to reference the object.
+These are used to create a "directed acylical graph" that defines the entirety
+of the workflow.  💡TIP: Airflow distributes tasks across multiple machines. In
+a large production environment with multiple workers, there is no garuntee that
+any 2 tasks will be run by the same worker. This means you should keep your
+tasks encapsulated and not rely on local file or memory storage within your
+workflows. DAG Run When you want to execute your workflow, you create a "DAG
+run" by providing the ID of the DAG you want to run, along with any arguments
+you'd like to pass. The scheduler then creates and queues up your new DAG run
+which executes when a worker becomes available. Triggers A trigger is an event
+that causes a DAG run. There are two important types of triggers - Manual - when
+Airflow is trigged using the API, CLI or Web UI manually Scheduled - the Airflow
+triggers the DAG based on a pre-defined schedule. In the UI, these are indicated
+by little circles around the DAG
+
+The taskflow API
+
+Testing XCom
+
+export default ({ children }) => (
+  <BlogLayout meta={meta}>{children}</BlogLayout>
+);

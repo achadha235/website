@@ -83,23 +83,6 @@ function App({ Component, pageProps, router }) {
         <AppContext.Provider value={appContext}>
           <Component key={router.route} {...pageProps} />
         </AppContext.Provider>
-        {isNil(cookies.enabledCookies) && isProduction && (
-          <CookieModal
-            showPrompt={isNil(useCookies)}
-            disableCookies={() => {
-              setUseCookies(false);
-              setCookie(null, 'enabledCookies', 'false', {
-                maxAge: cookieTimeoutSec,
-              });
-            }}
-            enableCookies={() => {
-              setUseCookies(true);
-              setCookie(null, 'enabledCookies', 'true', {
-                maxAge: cookieTimeoutSec,
-              });
-            }}
-          />
-        )}
       </ThemeProvider>
     </>
   );
