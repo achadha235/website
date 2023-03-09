@@ -12,6 +12,7 @@ export default {
   ),
   img: ({ src, alt }) => (
     <Image
+      alt='img'
       src={src}
       layout={alt.split('.')[0]}
       width={alt.split('.')[1]}

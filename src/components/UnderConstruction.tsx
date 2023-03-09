@@ -7,7 +7,12 @@ function UnderConstruction() {
       <Typography variant='caption' className='mb-5'>
         Under Construction
       </Typography>
-      <Image src='/images/underConstruction.svg' height={100} width={100} />
+      <Image
+        alt='under construction'
+        src='/images/underConstruction.svg'
+        height={100}
+        width={100}
+      />
     </div>
   );
 }
