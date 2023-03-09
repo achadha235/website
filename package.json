@@ -11,10 +11,11 @@
   "license": "MIT",
   "dependencies": {
     "dotenv": "^8.2.0",
-    "next": "^10.0.3",
+    "eslint-config-next": "^13.2.3",
+    "next": "^13.2.3",
     "nookies": "^2.5.0",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "scripts": {
     "dev": "next dev",

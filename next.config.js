@@ -8,7 +8,6 @@ const config = require('./config');
 const withMDX = require('@next/mdx')();
 
 const nextConfig = {
-  target: 'server',
   pageExtensions: ['ts', 'tsx', 'md', 'mdx'],
   distDir: '.next',
   serverRuntimeConfig: {
@@ -26,17 +25,14 @@ const nextConfig = {
 const phaseConfig = {
   [PHASE_DEVELOPMENT_SERVER]: {
     distDir: '.next',
-    assetPrefix: '',
     compress: false,
   },
   [PHASE_PRODUCTION_BUILD]: {
     distDir: 'build',
-    assetPrefix: '', // TODO: add asset prefix for deployed production bundle
     compress: true,
   },
   [PHASE_PRODUCTION_SERVER]: {
     distDir: 'build',
-    assetPrefix: '', // TODO: add asset prefix for deployed production bundle
     compress: true,
   },
 };

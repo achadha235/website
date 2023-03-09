@@ -77,8 +77,8 @@ p.MuiTypography-root {
 }
 
 a {
+  @apply transition-all;
   @apply font-bold;
-  @apply underline;
   @apply text-indigo-400;
 }
 

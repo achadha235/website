@@ -6,8 +6,8 @@ import Link from 'next/link';
 
 export default {
   a: ({ href, children }) => (
-    <Link href={href}>
-      <a target='_blank'> {children}</a>
+    <Link href={href} target='_blank'>
+      {children}
     </Link>
   ),
   img: ({ src, alt }) => (
