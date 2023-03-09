@@ -34,8 +34,8 @@ function Layout({ children, headerPosition, className }: LayoutProps) {
         }}
       />
 
-      <AnimateSharedLayout type='crossfade'>
-        <AnimatePresence exitBeforeEnter={true}>
+      <AnimateSharedLayout>
+        <AnimatePresence mode={'wait'}>
           <Header position={headerPosition} />
           <motion.div key={router.asPath} {...pageAnimations}>
             {children}

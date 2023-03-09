@@ -18,8 +18,8 @@ export function Home() {
         <title>Abhishek Chadha - Blog, Website and more</title>
       </Head>
       <div className='w-full min-h-screen flex justify-center items-center flex-col'>
-        <AnimateSharedLayout type='crossfade'>
-          <AnimatePresence exitBeforeEnter={true}>
+        <AnimateSharedLayout>
+          <AnimatePresence mode={'wait'}>
             <motion.div
               className='max-w-2xl'
               variants={container}

@@ -5,7 +5,7 @@ import Layout from 'src/components/Layout';
 import TextField from '@material-ui/core/TextField';
 import SearchIcon from '@material-ui/icons/Search';
 import * as categories from 'src/categories';
-import glob from 'glob';
+import glob, { globSync } from 'glob';
 import path from 'path';
 import fs from 'fs';
 
@@ -70,8 +70,7 @@ function BlogHomepage({ blogPosts }) {
 
 export async function getStaticProps() {
   const blogPaths = path.join(process.cwd(), 'src/pages/blog/**/*.mdx');
-  const blogPosts = glob
-    .sync(blogPaths)
+  const blogPosts = globSync(blogPaths)
     .map((filePath) => ({
       ...getMetaObject(filePath),
       path: getSlug(filePath),
