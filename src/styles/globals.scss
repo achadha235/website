@@ -77,7 +77,7 @@ h2 {
 }
 
 h3 {
-  @apply text-xl font-extralight leading-normal;
+  @apply text-2xl font-extralight leading-normal;
 }
 
 h3 {
@@ -97,5 +97,16 @@ a {
 }
 
 p {
-  @apply text-base font-light py-5 tracking-wider leading-relaxed;
+  @apply text-base font-light py-5 tracking-tight leading-relaxed;
+}
+
+.fade-bg {
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.7077205882352942) 41%,
+    rgba(0, 0, 0, 0.5284488795518207) 64%,
+    rgba(0, 0, 0, 0) 100%
+  );
 }

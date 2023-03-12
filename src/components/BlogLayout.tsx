@@ -8,7 +8,7 @@ interface BlogMetaComponentProps {
 }
 
 function BlogTitle({ meta }: BlogMetaComponentProps) {
-  return <h1>{meta.title}</h1>;
+  return <h1 className="font-bold">{meta.title}</h1>;
 }
 
 function BlogAuthor({ meta, className }: BlogMetaComponentProps) {
