@@ -1,80 +1,70 @@
-import { createMuiTheme } from '@material-ui/core/styles';
-import tailwindConfig from '../../tailwind.config';
+import { createTheme } from "@mui/material";
+import tailwindConfigJSON from "../../tailwind.config";
+import resolveConfig from "tailwindcss/resolveConfig";
 
 const fontFamily =
   'Inter, -apple-system, system-ui, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif';
 
-const theme = createMuiTheme({
+const tailwindConfig = resolveConfig(tailwindConfigJSON);
+const colors: any = tailwindConfig.theme?.colors;
+const defaultColor = colors.white;
+export const theme = createTheme({
   palette: {
-    type: 'dark',
     primary: {
-      light: tailwindConfig.theme.colors.indigo[300],
-      main: tailwindConfig.theme.colors.indigo[500],
-      dark: tailwindConfig.theme.colors.indigo[900],
-      contrastText: tailwindConfig.theme.colors.white,
+      light: defaultColor,
+      main: defaultColor,
+      dark: defaultColor,
+      contrastText: defaultColor,
     },
 
     secondary: {
-      light: tailwindConfig.theme.colors.teal[300],
-      main: tailwindConfig.theme.colors.teal[500],
-      dark: tailwindConfig.theme.colors.teal[900],
-      contrastText: tailwindConfig.theme.colors.white,
+      light: defaultColor,
+      main: defaultColor,
+      dark: defaultColor,
+      contrastText: defaultColor,
     },
   },
   typography: {
     allVariants: {
       fontFamily,
-      color: tailwindConfig.theme.colors.white,
+      color: defaultColor,
     },
     body1: {
       fontWeight: 400,
-      lineHeight: '2rem',
+      lineHeight: "2rem",
     },
   },
-  overrides: {
-    /** 
+
+  components: {
     MuiTypography: {
-      root: {
-        color: tailwindConfig.theme.colors.gray[100],
+      styleOverrides: {
+        root: {
+          color: colors.gray[100],
+        },
       },
-    },    
-    */
+    },
     MuiAppBar: {
-      colorPrimary: {
-        backgroundColor: tailwindConfig.theme.colors.black,
-      },
-    },
-    MuiTab: {
-      root: {
-        outline: 'none !important',
-      },
-    },
-    MuiButton: {
-      text: {
-        cursor: 'pointer !important',
-        fontSize: '0.65rem',
-        fontWeight: 300,
-      },
-      label: {
-        cursor: 'pointer !important',
-        transform: 'translateX(1px)',
-      },
-      root: {
-        cursor: 'pointer !important',
-        outline: 'none !important',
-        fontWeight: 600,
-        letterSpacing: 1,
+      styleOverrides: {
+        colorPrimary: {
+          backgroundColor: colors.black,
+        },
       },
     },
 
-    MuiBadge: {
-      anchorOriginTopRightRectangle: {
-        fontWeight: 600,
-        top: 8,
-        right: 10,
+    MuiButton: {
+      styleOverrides: {
+        text: {
+          cursor: "pointer !important",
+          fontSize: "0.65rem",
+          fontWeight: 300,
+        },
+        root: {
+          cursor: "pointer !important",
+          outline: "none !important",
+          fontWeight: 600,
+          letterSpacing: 1,
+        },
       },
     },
   },
 });
-
-export default theme;

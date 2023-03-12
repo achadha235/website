@@ -1,45 +1,26 @@
-const {
-  PHASE_DEVELOPMENT_SERVER,
-  PHASE_PRODUCTION_BUILD,
-  PHASE_PRODUCTION_SERVER,
-} = require('next/constants');
+// /** @type {import('next').NextConfig} */
+const remarkFrontmatter = import("remark-frontmatter");
 
-const config = require('./config');
-const withMDX = require('@next/mdx')();
+const withMDX = require("@next/mdx")({
+  extension: /\.mdx?$/,
+  options: {
+    // If you use remark-gfm, you'll need to use next.config.mjs
+    // as the package is ESM only
+    // https://github.com/remarkjs/remark-gfm#install
+    remarkPlugins: [remarkFrontmatter],
+    rehypePlugins: [],
+    // If you use `MDXProvider`, uncomment the following line.
+    // providerImportSource: "@mdx-js/react",
+  },
+});
 
+/** @type {import('next').NextConfig} */
 const nextConfig = {
-  pageExtensions: ['ts', 'tsx', 'md', 'mdx'],
-  distDir: '.next',
-  serverRuntimeConfig: {
-    ...config,
-  },
-  publicRuntimeConfig: {
-    // Will be available on both server and client...do not add secrets
-
-    NODE_ENV: config.NODE_ENV,
-    ANALYTICS_WRITE_KEY: config.ANALYTICS_WRITE_KEY,
-    GA_MEASUREMENT_ID: config.GA_MEASUREMENT_ID,
-  },
+  // Configure pageExtensions to include md and mdx
+  pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
+  // Optionally, add any other Next.js config below
+  reactStrictMode: true,
 };
 
-const phaseConfig = {
-  [PHASE_DEVELOPMENT_SERVER]: {
-    distDir: '.next',
-    compress: false,
-  },
-  [PHASE_PRODUCTION_BUILD]: {
-    distDir: 'build',
-    compress: true,
-  },
-  [PHASE_PRODUCTION_SERVER]: {
-    distDir: 'build',
-    compress: true,
-  },
-};
-
-module.exports = (phase, { defaultConfig }) => {
-  return withMDX({
-    ...nextConfig,
-    ...(phaseConfig[phase] || {}),
-  });
-};
+// Merge MDX config with Next.js config
+module.exports = withMDX(nextConfig);

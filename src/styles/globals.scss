@@ -1,14 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-@import './reset.scss';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@import 'tailwindcss/base';
-
-@import 'tailwindcss/components';
-
-@import 'tailwindcss/utilities';
+@mixin headings {
+  h1, h2, h3,
+  h4, h5, h6 {
+      @content;
+  }
+}
 
 html {
+  font-family: 'Inter';
+  color: white;
   font-size: 14px;
 
   @media (min-width: theme('screens.sm')) {
@@ -44,8 +49,6 @@ html {
 }
 
 body {
-  background: #141419;
-  // @extend .murdered-out-black-gradient;
   height: 100%;
 }
 
@@ -61,27 +64,38 @@ hr {
   @apply my-5;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  @apply my-6;
-  @apply font-extrabold;
+@include headings {
+  @apply my-5;
 }
 
-p.MuiTypography-root {
-  @apply my-6;
-  @apply font-light;
+h1 {
+  @apply text-5xl tracking-tight leading-tight;
+}
+
+h2 {
+  @apply text-3xl tracking-tight;
+}
+
+h3 {
+  @apply text-xl font-extralight leading-normal;
+}
+
+h3 {
+  @apply text-lg font-extralight leading-normal;
+}
+
+h4 {
+  @apply text-base;
+}
+
+h5 {
+  @apply text-sm;
 }
 
 a {
-  @apply transition-all;
-  @apply font-bold;
-  @apply text-indigo-400;
+  @apply tracking-wider;
 }
 
-a:hover {
-  @apply text-indigo-600;
+p {
+  @apply text-base font-light py-5 tracking-wider leading-relaxed;
 }

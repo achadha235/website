@@ -1,56 +1,48 @@
-import Head from 'next/head';
-import { Typography } from '@material-ui/core';
-import Layout from 'src/components/Layout';
-import ContactDetails from 'src/components/ContactDetails';
-import { AnimateSharedLayout, AnimatePresence, motion } from 'framer-motion';
-import dynamic from 'next/dynamic';
-import Background from 'src/components/Background';
-
-const Experience = dynamic(
-  () => import('src/components/Experience.mdx' as any),
-  { ssr: false, loading: () => <p>...</p> }
-);
+import ContactDetails from "@/components/ContactDetails";
+import Experience from "@/components/Experience";
+import Layout from "@/components/Layout";
+import { AnimatePresence, motion } from "framer-motion";
+import Head from "next/head";
 
 export function Home() {
   return (
-    <Layout className='px-8'>
+    <Layout className="px-8">
       <Head>
         <title>Abhishek Chadha - Blog, Website and more</title>
       </Head>
-      <div className='w-full min-h-screen flex justify-center items-center flex-col'>
-        <AnimateSharedLayout>
-          <AnimatePresence mode={'wait'}>
-            <motion.div
-              className='max-w-2xl'
-              variants={container}
-              initial='hidden'
-              animate='show'
-            >
-              <motion.div variants={item}>
-                <Typography variant='h3' className='tracking-tighter'>
-                  Hey there! I'm <b>Abhishek</b>. <br /> I design and build
-                  software products.
-                </Typography>
-              </motion.div>
-              <motion.div
-                className='w-full flex flex-row justify-between mt-12'
-                variants={item}
-              >
-                <ContactDetails />
-              </motion.div>
+      <div className="w-full min-h-screen flex justify-center items-center flex-col">
+        <AnimatePresence mode={"wait"}>
+          <motion.div
+            className="max-w-2xl"
+            variants={container}
+            initial="hidden"
+            animate="show"
+          >
+            <motion.div variants={item}>
+              <h1>
+                Hey there!{" "}
+                <b className="whitespace-nowrap">
+                  <span className="font-normal">{"I'm"}</span> Abhishek
+                </b>
+                . <br /> I design and build software products.
+              </h1>
             </motion.div>
-          </AnimatePresence>
-        </AnimateSharedLayout>
+            <motion.div
+              className="w-full flex flex-row justify-between mt-12"
+              variants={item}
+            >
+              <ContactDetails />
+            </motion.div>
+          </motion.div>
+        </AnimatePresence>
       </div>
-      <div className='w-full min-h-screen flex justify-center items-center flex-col'>
-        <div className='max-w-2xl'>
-          <Typography variant='h5' className='font-thin'>
-            Over the last 7 years, I've been fortunate enough to travel around
-            the world and work on a variety of products with world-class teams.
-          </Typography>
-          <div className='w-full grid lg:grid-cols-3 gap-4 grid-cols-2'>
-            <Experience />
-          </div>
+      <div className="w-full min-h-screen flex justify-center items-center flex-col max-w-2xl mx-auto gap-10">
+        <h3>
+          Over the last 7 years, {"I've"} been fortunate enough to travel around
+          the world and work on a variety of products with world-class teams.
+        </h3>
+        <div className="w-full grid lg:grid-cols-3 gap-4 grid-cols-2">
+          <Experience />
         </div>
       </div>
     </Layout>

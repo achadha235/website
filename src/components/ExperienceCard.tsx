@@ -1,21 +1,10 @@
-import Image from 'next/image';
-import { Paper, Typography } from '@material-ui/core';
-import css from 'styled-jsx/css';
+import CloseIcon from "@mui/icons-material/Close";
+import Image from "next/image";
+import { useState } from "react";
+import { Fade, Modal, Paper, Typography } from "@mui/material";
+import css from "styled-jsx/css";
 
-import Modal from '@material-ui/core/Modal';
-import Backdrop from '@material-ui/core/Backdrop';
-import Fade from '@material-ui/core/Fade';
-import { useState } from 'react';
-import CloseIcon from '@material-ui/icons/Close';
-import DialogTitle from '@material-ui/core/DialogTitle';
-
-interface ExperienceCardProps {
-  imageUrl: string;
-  name: string;
-  children?: React.ReactNode;
-}
-
-function ExperienceCard({ imageUrl, name, children }: ExperienceCardProps) {
+export default function ExperienceCard({ children, imageUrl, name }) {
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => {
@@ -38,72 +27,47 @@ function ExperienceCard({ imageUrl, name, children }: ExperienceCardProps) {
       );
     }
   `;
+
   return (
-    <div className='container h-40 p-2 pb-0 pl-0 pr-0 pt-0 flex flex-col justify-end items-center hover:scale-105 transform ease-in-out transition-transform duration-75 cursor-pointer overflow-hidden rounded-sm '>
-      <div className='w-full h-full bg-white' />
+    <div className="container h-40 p-2 pb-0 pl-0 pr-0 pt-0 flex flex-col justify-end items-center hover:scale-105 transform ease-in-out transition-transform duration-75 cursor-pointer overflow-hidden rounded-sm ">
+      <div className="w-full h-full bg-white" />
       <Image
+        fill
+        sizes="100vw"
         onClick={handleOpen}
-        loading='eager'
-        layout='fill'
+        loading="eager"
         className={`object-center object-cover `}
         src={imageUrl}
         alt={name}
       />
-      <Typography
+      <span
         onClick={handleOpen}
-        variant='body2'
         className={`${className} font-semibold tracking-tighter m-0 py-2 w-full rounded-b-sm px-3 relative `}
       >
         {name}
-      </Typography>
+      </span>
 
       <Modal
-        aria-labelledby='transition-modal-title'
-        aria-describedby='transition-modal-description'
-        className='justify-center flex items-center p-5'
+        aria-labelledby="transition-modal-title"
+        aria-describedby="transition-modal-description"
+        className="justify-center flex items-center p-5"
         open={open}
         onClose={handleClose}
         closeAfterTransition
-        BackdropComponent={Backdrop}
-        BackdropProps={{
-          timeout: 500,
-        }}
       >
         <Fade in={open}>
           <Paper
-            className='max-w-2xl w-full min-h-full h-full p-4 bg-black outline-none'
-            variant='outlined'
+            className="max-w-2xl w-full h-screen p-4 bg-black text-white outline-none overflow-scroll"
+            variant="outlined"
           >
-            <div className='w-full flex justify-end'>
-              <CloseIcon className='ml-auto' onClick={handleClose} />
+            <div className="w-full flex justify-end">
+              <CloseIcon className="ml-auto" onClick={handleClose} />
             </div>
-
-            <div className='overflow-x-hidden overflow-y-scroll modalContainerHeight'>
-              {children}
-            </div>
+            <div>{children}</div>
           </Paper>
         </Fade>
       </Modal>
-
       {styles}
-      <style global jsx>{`
-        .container > div > img {
-          opacity: 0.8;
-          scale: scale(1);
-          transition: all 100ms ease-in-out;
-        }
-
-        .container:hover > div > img {
-          opacity: 1;
-          transform: scale(1.05);
-        }
-
-        .modalContainerHeight {
-          height: 95%;
-        }
-      `}</style>
     </div>
   );
 }
-
-export default ExperienceCard;

@@ -1,13 +1,14 @@
-import Header from './Header';
-import NextNprogress from 'nextjs-progressbar';
-import { AppBarProps } from '@material-ui/core';
-import { AnimateSharedLayout, AnimatePresence, motion } from 'framer-motion';
-import { useRouter } from 'next/router';
-import Background from './Background';
+/* eslint-disable @next/next/no-img-element */
+import Header from "./Header";
+import NextNprogress from "nextjs-progressbar";
+import { AppBarProps } from "@mui/material";
+import { AnimatePresence, motion } from "framer-motion";
+import { useRouter } from "next/router";
+import Background from "./Background";
 
 interface LayoutProps {
   children?: any;
-  headerPosition?: AppBarProps['position'];
+  headerPosition?: AppBarProps["position"];
   className?: string;
 }
 
@@ -18,30 +19,29 @@ function Layout({ children, headerPosition, className }: LayoutProps) {
       className={` h-full w-full overflow-x-hidden justify-center ${className}`}
     >
       <NextNprogress
-        color='#29D'
+        color="#29D"
         startPosition={0.3}
         stopDelayMs={200}
         height={3}
       />
       <img
-        src='/images/gradient.svg'
-        className='w-full h-screen'
+        alt="gradient"
+        src="/images/gradient.svg"
+        className="w-full h-screen"
         style={{
-          filter: 'grayscale(100%) brightness(0.15)',
-          transform: 'scale(6)',
-          position: 'fixed',
+          filter: "grayscale(100%) brightness(0.09)",
+          transform: "scale(1.5)",
+          position: "fixed",
           zIndex: -1,
         }}
       />
 
-      <AnimateSharedLayout>
-        <AnimatePresence mode={'wait'}>
-          <Header position={headerPosition} />
-          <motion.div key={router.asPath} {...pageAnimations}>
-            {children}
-          </motion.div>
-        </AnimatePresence>
-      </AnimateSharedLayout>
+      <AnimatePresence mode={"wait"}>
+        <Header position={headerPosition} />
+        <motion.div key={router.asPath} {...pageAnimations}>
+          {children}
+        </motion.div>
+      </AnimatePresence>
     </div>
   );
 }
@@ -52,9 +52,9 @@ const pageAnimations = {
   exit: {
     y: 5,
     opacity: 1,
-    transition: { duration: 0.3, ease: 'easeOut' },
+    transition: { duration: 0.3, ease: "easeOut" },
   },
-  transition: { duration: 0.2, ease: 'easeInOut' },
+  transition: { duration: 0.2, ease: "easeInOut" },
 };
 
 export default Layout;

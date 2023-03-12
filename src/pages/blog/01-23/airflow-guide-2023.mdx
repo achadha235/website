@@ -1,12 +1,12 @@
-import BlogLayout from 'src/components/BlogLayout';
+import BlogLayout from "src/components/BlogLayout";
 
 export const meta = {
-  title: 'Airflow Guide to 2023',
-  author: 'Abhishek Chadha',
-  hidden: false,
-  publishedAt: '2023-01-14',
+  title: "Airflow Guide to 2023",
+  author: "Abhishek Chadha",
+  hidden: true,
+  publishedAt: "2023-01-14",
   banner: `Learn how to create a production-ready data workflow using Python and Google Cloud.`,
-  categories: ['Python', 'Data', 'Programming'],
+  categories: ["Python", "Data", "Programming"],
 };
 
 #### Summary
@@ -14,6 +14,7 @@ export const meta = {
 Apache Airflow is popular workflow management system for creating data
 pipelines. It can be extremely useful for creating and running complex data
 processes at scale. In this guide, you will learn how to:
+
 - Learn about Airflow and when to use it
 - Set up a local Airflow 2.2 dev environment using Docker
 - Author a basic data Airflow DAG using the Taskflow API to perform operations on a Postgres database and Google Clound.
@@ -66,7 +67,3 @@ by little circles around the DAG
 The taskflow API
 
 Testing XCom
-
-export default ({ children }) => (
-  <BlogLayout meta={meta}>{children}</BlogLayout>
-);

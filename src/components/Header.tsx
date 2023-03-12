@@ -1,37 +1,35 @@
-import { AppBar, Button, Toolbar, Typography } from '@material-ui/core';
-import Image from 'next/image';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
-import classNames from 'classnames';
-import css from 'styled-jsx/css';
+import { AppBar, Button, Toolbar, Typography } from "@mui/material";
+import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import classNames from "classnames";
+import css from "styled-jsx/css";
 
-function Header({ position }) {
+function Header({ position }: any) {
   const router = useRouter();
   const path = router.pathname;
   return (
-    <AppBar position={position || 'fixed'} variant='elevation' color='primary'>
-      <Toolbar variant='dense'>
+    <AppBar position={position || "fixed"} variant="elevation" color="primary">
+      <Toolbar variant="dense">
         <Image
-          onClick={() => router.push('/')}
-          className='cursor-pointer'
-          src='/images/logo.svg'
-          alt='AC'
+          onClick={() => router.push("/")}
+          className="cursor-pointer"
+          src="/images/logo.svg"
+          alt="AC"
           height={40}
           width={40}
         />
-        <div className='w-full flex flex-row justify-evenly max-w-sm mx-auto'>
-          <Link href='/'>
+        <div className="w-full flex flex-row justify-evenly max-w-sm mx-auto">
+          <Link href="/">
             <Button
-              classes={{ label: classNames({ [className]: path === '/' }) }}
+              classes={{ text: classNames({ "font-bold": path === "/" }) }}
             >
               About Me
             </Button>
           </Link>
-          <Link href='/blog'>
+          <Link href="/blog">
             <Button
-              classes={{
-                label: classNames({ [className]: path.indexOf('/blog') > -1 }),
-              }}
+              classes={{ text: classNames({ "font-bold": path === "/blog" }) }}
             >
               Articles
             </Button>

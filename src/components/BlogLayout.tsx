@@ -1,9 +1,6 @@
-import { Typography } from '@material-ui/core';
-import moment from 'moment';
-import { MDXProvider } from '@mdx-js/react';
-import Layout from 'src/components/Layout';
-import components from 'src/mdx';
-import Head from 'next/head';
+import Layout from "@/components/Layout";
+import { DateTime } from "luxon";
+import Head from "next/head";
 
 interface BlogMetaComponentProps {
   meta: { title: string; author: string; publishedAt: string };
@@ -11,43 +8,43 @@ interface BlogMetaComponentProps {
 }
 
 function BlogTitle({ meta }: BlogMetaComponentProps) {
-  return <Typography variant='h3'>{meta.title}</Typography>;
+  return <h1>{meta.title}</h1>;
 }
 
 function BlogAuthor({ meta, className }: BlogMetaComponentProps) {
   return (
-    <Typography variant='h6' className={className}>
+    <h6 className={className}>
       By <b>{meta.author}</b>
-    </Typography>
+    </h6>
   );
 }
 
 function BlogDate({ meta, className }: BlogMetaComponentProps) {
   return (
-    <Typography variant='h6' className={className}>
-      Published on {moment(meta.publishedAt).format('ll')}
-    </Typography>
+    <h6 className={`${className} text-sm font-light`}>
+      Published on {DateTime.fromISO(meta.publishedAt).toFormat("DD")}
+    </h6>
   );
 }
 
 function BlogLayout({ children, meta }) {
   return (
-    <MDXProvider components={components}>
+    <>
       <Head>
         <title>{meta.title}</title>
       </Head>
-      <Layout className='h-auto' headerPosition='relative'>
-        <div className='w-full justify-center items-center flex my-10'>
-          <div className='max-w-2xl p-4'>
+      <Layout className="h-auto" headerPosition="relative">
+        <div className="w-full justify-center items-center flex my-10">
+          <div className="max-w-2xl p-4">
             <BlogTitle meta={meta} />
-            <BlogAuthor meta={meta} className='mt-3' />
-            <BlogDate meta={meta} className='text-sm color-grey-900' />
+            <BlogAuthor meta={meta} className="mt-3" />
+            <BlogDate meta={meta} className="text-sm color-grey-900" />
             <hr />
             {children}
           </div>
         </div>
       </Layout>
-    </MDXProvider>
+    </>
   );
 }
 
