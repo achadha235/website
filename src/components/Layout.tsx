@@ -1,44 +1,77 @@
-/* eslint-disable @next/next/no-img-element */
-import Header from "./Header";
-import NextNprogress from "nextjs-progressbar";
-import { AppBarProps } from "@mui/material";
+"use client";
+
+import { getCookie, setCookie } from "cookies-next";
 import { AnimatePresence, motion } from "framer-motion";
-import { useRouter } from "next/router";
-import Background from "./Background";
+import { isNil } from "lodash";
+import { AppProgressBar as ProgressBar } from "next-nprogress-bar";
+import { usePathname } from "next/navigation";
+import { use, useEffect, useState } from "react";
+import { useEventListener, useIsClient, useMediaQuery } from "usehooks-ts";
+import { Navbar } from "../components/Navbar";
+import GradientCanvas, { getThemeColorHex } from "./GradientCanvas";
+import themes from "@/themes";
 
 interface LayoutProps {
   children?: any;
-  headerPosition?: AppBarProps["position"];
   className?: string;
+  theme?: string;
+  showNav?: boolean;
 }
 
-function Layout({ children, headerPosition, className }: LayoutProps) {
-  const router = useRouter();
-  return (
-    <div
-      className={` h-full w-full overflow-x-hidden justify-center ${className}`}
-    >
-      <NextNprogress
-        color="#29D"
-        startPosition={0.3}
-        stopDelayMs={200}
-        height={3}
-      />
-      <img
-        alt="gradient"
-        src="/images/gradient.svg"
-        className="w-full h-screen"
-        style={{
-          filter: "grayscale(100%) brightness(0.09)",
-          transform: "scale(1.5)",
-          position: "fixed",
-          zIndex: -1,
-        }}
-      />
+const themeList = themes;
 
-      <AnimatePresence mode={"wait"}>
-        <Header position={headerPosition} />
-        <motion.div key={router.asPath} {...pageAnimations}>
+function Layout({ theme, children, className, showNav = true }: LayoutProps) {
+  const pathName = usePathname();
+  const isClient = useIsClient();
+  const prefersLightTheme = useMediaQuery("(prefers-color-scheme: light)");
+  if (isNil(theme)) {
+    setCookie("theme", prefersLightTheme ? "light" : "dark");
+  }
+  const [currentTheme, setCurrentTheme] = useState(
+    theme || getCookie("theme") || "dark"
+  );
+
+  const [progressBarColor, setProgressBarColor] = useState(
+    getThemeColorHex("--a")
+  );
+  useEffect(() => {
+    setProgressBarColor(getThemeColorHex("--p"));
+  }, [currentTheme]);
+
+  useEventListener("keydown", (e) => {
+    if (e.ctrlKey && e.key.toLowerCase() === "t") {
+      const currThemeIndex = themeList.indexOf(currentTheme);
+      const nextThemeIndex = (currThemeIndex + 1) % themeList.length;
+      setCurrentTheme(themeList[nextThemeIndex]);
+    }
+  });
+
+  useEffect(() => {
+    setCookie("theme", currentTheme);
+  }, [currentTheme]);
+
+  return (
+    <div data-theme={currentTheme} id="layout">
+      {isClient && (
+        <ProgressBar
+          color={progressBarColor}
+          options={{ showSpinner: false }}
+          height="2px"
+        />
+      )}
+      <GradientCanvas
+        theme={currentTheme}
+        className="fixed top-0 left-0 z-0"
+        id={"gradient-canvas"}
+      />
+      {showNav && <Navbar theme={currentTheme} />}
+      <AnimatePresence key={pathName} mode={"wait"}>
+        <motion.div
+          viewport={{ once: true }}
+          style={{ position: "relative" }}
+          key={pathName}
+          {...pageAnimations}
+        >
           {children}
         </motion.div>
       </AnimatePresence>
