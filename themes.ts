@@ -1,11 +1,5 @@
 // List of the included themes with DaisyUI
 const themes = [
-  "light",
-  "dark",
-  "cupcake",
-  "bumblebee",
-  "emerald",
-  "corporate",
   "synthwave",
   "retro",
   "cyberpunk",

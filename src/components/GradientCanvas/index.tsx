@@ -1,6 +1,6 @@
 //  @ts-nocheck
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { Gradient } from "./Gradient";
 import clsx from "clsx";
 import Color from "colorjs.io";
@@ -27,14 +27,13 @@ function getGradientColors() {
     new Color(getThemeColorHex("--b1"))
       .lighten(0.08)
       .toString({ format: "hex" }),
-    getThemeColorHex("--b2"),
+    getThemeColorHex("--p"),
     getThemeColorHex("--b3"),
-    new Color(getThemeColorHex("--b3")).darken(0.2).toString({ format: "hex" }),
+    new Color(getThemeColorHex("--s")).darken(0.1).toString({ format: "hex" }),
   ];
 }
 
 export default function GradientCanvas({ className = "", id, theme }) {
-  const gradient = useRef<Gradient>(null);
   const stopAnimation = useReducedMotion();
 
   const [colors, setColors] = useState(getGradientColors());
@@ -47,9 +46,6 @@ export default function GradientCanvas({ className = "", id, theme }) {
       return;
     }
 
-    // if (gradient.current) {
-    //   gradient.current.disconnect();
-    // }
     const newGradient = new Gradient();
     newGradient.initGradient("#" + id);
 
@@ -66,7 +62,7 @@ export default function GradientCanvas({ className = "", id, theme }) {
 
   return (
     <>
-      <canvas id={id} className={clsx(className, "h-svh w-screen")} />
+      <canvas id={id} className={clsx(className, "h-lvh w-screen")} />
       <style jsx global>{`
         #gradient-canvas {
           --gradient-color-1: ${colors[0]};

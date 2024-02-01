@@ -61,7 +61,7 @@ export function Experience() {
   }
 
   return (
-    <div className="relative h-[calc(100lvh-64px)] w-screen flex flex-col justify-start items-center p-4 pt-0">
+    <div className="relative h-[calc(100lvh-56px)] w-screen flex flex-col justify-start items-center p-4 pt-0 bg-base-100">
       <div className="max-w-4xl flex-shrink  h-fit text-base leading-relaxed py-6">
         <div
           style={{
@@ -152,7 +152,7 @@ export function Experience() {
             </div>
             <motion.div
               className={clsx(
-                "max-w-2xl prose prose-sm mx-auto py-10 px-4 transition-all mt-0",
+                "max-w-2xl prose prose-base mx-auto py-10 px-4 transition-all mt-0",
                 {
                   "opacity-0 mt-3": !showContent,
                 }

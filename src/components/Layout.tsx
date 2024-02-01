@@ -19,13 +19,13 @@ interface LayoutProps {
 }
 
 const themeList = themes;
-
+const maxAge = 60 * 60 * 399;
 function Layout({ theme, children, className, showNav = true }: LayoutProps) {
   const pathName = usePathname();
   const isClient = useIsClient();
   const prefersLightTheme = useMediaQuery("(prefers-color-scheme: light)");
   if (isNil(theme)) {
-    setCookie("theme", prefersLightTheme ? "light" : "dark");
+    setCookie("theme", prefersLightTheme ? "winter" : "coffee", { maxAge });
   }
   const [currentTheme, setCurrentTheme] = useState(
     theme || getCookie("theme") || "dark"
@@ -47,7 +47,7 @@ function Layout({ theme, children, className, showNav = true }: LayoutProps) {
   });
 
   useEffect(() => {
-    setCookie("theme", currentTheme);
+    setCookie("theme", currentTheme, { maxAge });
   }, [currentTheme]);
 
   return (
@@ -64,7 +64,18 @@ function Layout({ theme, children, className, showNav = true }: LayoutProps) {
         className="fixed top-0 left-0 z-0"
         id={"gradient-canvas"}
       />
-      {showNav && <Navbar theme={currentTheme} />}
+      {showNav && (
+        <Navbar
+          onToggleClicked={() => {
+            if (currentTheme === "coffee") {
+              setCurrentTheme("winter");
+            } else {
+              setCurrentTheme("coffee");
+            }
+          }}
+          theme={currentTheme}
+        />
+      )}
       <AnimatePresence key={pathName} mode={"wait"}>
         <motion.div
           viewport={{ once: true }}

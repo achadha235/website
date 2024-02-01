@@ -23,21 +23,23 @@ export function Splash({}) {
       initial="hidden"
       animate="show"
     >
-      <motion.div
-        style={{
-          textWrap: "balance",
-          maxInlineSize: "20ch",
-          backgroundBlendMode: "color-burn",
-        }}
-        className="text-4xl max-w-xl leading-tight p-4 text-base-content"
-        variants={item}
-      >
-        Hey there!{" "}
-        <b className="whitespace-nowrap">
-          <span className="font-normal">{"I'm"}</span> Abhishek
-        </b>
-        . <br /> I design and build software products.
-      </motion.div>
+      <div className="bg-base-100 rounded-btn bg-opacity-50">
+        <motion.div
+          style={{
+            textWrap: "balance",
+            maxInlineSize: "20ch",
+            backgroundBlendMode: "color-burn",
+          }}
+          className="text-5xl max-w-xl leading-tight p-4 text-base-content"
+          variants={item}
+        >
+          Hey there!{" "}
+          <b className="whitespace-nowrap">
+            <span className="font-normal">{"I'm"}</span> Abhishek
+          </b>
+          . <br /> I design and build software products.
+        </motion.div>
+      </div>
       <motion.div
         className="w-full flex flex-row flex-wrap items-center justify-center mt-12 "
         variants={item}

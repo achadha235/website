@@ -22,9 +22,7 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <Layout theme={"light" || cookies().get("theme")?.value}>
-          {children}
-        </Layout>
+        <Layout theme={cookies().get("theme")?.value}>{children}</Layout>
       </body>
     </html>
   );
