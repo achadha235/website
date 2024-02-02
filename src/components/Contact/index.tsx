@@ -68,7 +68,7 @@ export function Contact() {
             maxInlineSize: "100ch",
             textWrap: "balance",
           }}
-          className="h-full text-4xl text-start py-2 my-auto flex flex-col items-start justify-center gap-2 bg-primary text-primary-content p-4 font-light shadow-lg"
+          className="h-full text-4xl text-start py-2 my-auto flex flex-col items-start justify-center gap-2 bg-primary border border-secondary text-primary-content p-4 font-light shadow-lg"
         >
           <span className="material-symbols-outlined text-6xl mx-auto">
             forum

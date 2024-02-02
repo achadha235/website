@@ -48,35 +48,3 @@ html {
     font-size: 18px;
   }
 }
-/* 
-h1 {
-  @apply text-5xl tracking-tight leading-tight;
-}
-
-h2 {
-  @apply text-3xl tracking-tight;
-}
-
-h3 {
-  @apply text-2xl font-extralight leading-normal;
-}
-
-h3 {
-  @apply text-lg font-extralight leading-normal;
-}
-
-h4 {
-  @apply text-base;
-}
-
-h5 {
-  @apply text-sm;
-} */
-
-/* a {
-  @apply font-bold;
-}
-
-p {
-  @apply text-base font-light py-5 tracking-tight leading-relaxed;
-} */
