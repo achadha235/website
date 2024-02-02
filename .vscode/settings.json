@@ -16,5 +16,8 @@
       ".ts",
       ".tsx"
     ]
-  }
+  },
+  "css.customData": [
+    ".vscode/tailwind.json"
+  ]
 }

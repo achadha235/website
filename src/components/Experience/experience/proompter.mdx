@@ -1,0 +1,24 @@
+import ArticleTags from "@/components/ArticleTags"
+
+export const metadata = {
+  order: 8,
+  imageURL: "/images/logos/proompter.png",
+  title: "Proompter AI",
+  stack: ["Typescript", "Python", "Docker", "Vercel AI SDK", "Langchain", "Flowise", "AWS"],
+}
+
+
+# Proompter AI
+
+### Launch and monetize AI apps quickly
+<ArticleTags tags={metadata.stack} />
+
+During my time at Yellowbrick, I was prototyping various AI apps and noticed that I was writing the same boilerplate code over and over again. I decided to create a framework that would allow me to quickly launch and monetize AI apps without having to rebuild UI and APIs for common functionality like auth, payments each time. After doing some informal research, I found that many other developers were facing the same issue. Although I saw some packages addressing parts of this issue, there were no solutions that I thought provided the correct abstractions.
+
+And so, in November 2023 I set out to build an open-source to address this gap. My goal with Proompter is to combine the best open-source with flexible application UIs. By doing so, I hope to enable everyone to ship and monetize beautiful, performant AI apps without any vendor lock-in to specific clouds / tools / foundation models / databases / payment providers / etc.
+
+Proompter is in early alpha and I am working with a few early adopters to build out apps that just arn't possible using Custom GPTs in OpenAI. You can check out the code on GitHub [here](https://github.com/achadha235/proompter-oss). If this is successful, I hope to build a deployment platform and educational materials to teach others how to build custom low-code AI apps.
+
+
+![fixed.700px.380px](/images/resume/chat-gpt.png)
+*I believe it should be easy to build a GPT called "C3PO" that speaks Hindi, uses Comic Sans and saves all my conversations on Oracle DB*
