@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import Logo from "./Logo";
 
 import { getThemeColorHex } from "./GradientCanvas";
+import { defaultTheme } from "@/themes";
 export function Navbar({ theme, onToggleClicked }) {
   const pathName = usePathname();
   // const isSticky = pathName === "/";
@@ -59,7 +60,7 @@ export function Navbar({ theme, onToggleClicked }) {
           {/* this hidden checkbox controls the state */}
           <input
             type="checkbox"
-            checked={theme === "coffee"}
+            checked={theme === defaultTheme.dark}
             onChange={onToggleClicked}
           />
 
