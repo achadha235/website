@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     "Abhishek is a full stack software engineer from New Delhi with over 10 years of experience, specialized in B2C products.",
   icons: ["/logo.svg"],
   openGraph: {
-    images: ["/api/og/"],
+    images: ["/og"],
   },
 };
 
