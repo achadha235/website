@@ -1,5 +1,4 @@
 import { loadArticle, getArticles } from "@/app/blog/utils";
-import BackButton from "@/components/BackButton";
 import { Metadata } from "next";
 
 export const dynamic = "force-static";
@@ -39,6 +38,4 @@ export default async function Post({ params }) {
       <article.default />
     </PostLayout>
   );
-  // const post = await loadArticle(`${params.slug}.mdx`);
-  // return <PostLayout post={post} title={post.metadata.name} />;
 }
