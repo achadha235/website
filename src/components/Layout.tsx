@@ -94,7 +94,6 @@ function Layout({ theme, children, showNav = true }: LayoutProps) {
 }
 
 const pageAnimations = {
-  fallbackStyle: { opacity: 1, y: 0 },
   initial: { opacity: 0, y: -5 },
   animate: { opacity: 1, y: 0 },
   exit: {

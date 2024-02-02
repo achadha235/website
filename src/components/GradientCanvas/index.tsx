@@ -64,14 +64,14 @@ export default function GradientCanvas({ className = "", id, theme }) {
   return (
     <>
       <canvas id={id} className={clsx(className, "h-lvh w-screen")} />
-      <_JSXStyle id="gradient">{`
+      <style jsx global>{`
         #gradient-canvas {
           --gradient-color-1: ${colors[0]};
           --gradient-color-2: ${colors[1]};
           --gradient-color-3: ${colors[2]};
           --gradient-color-4: ${colors[3]};
         }
-      `}</_JSXStyle>
+      `}</style>
     </>
   );
 }
