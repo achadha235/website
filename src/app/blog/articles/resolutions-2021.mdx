@@ -15,7 +15,7 @@ export const metadata = {
 <ArticleTags tags={metadata.categories}/>
 <br/>
 <div className="text-lg">Published {metadata.publishedAt.toRelativeCalendar()} </div> 
-<div className="text-sm font-light">{metadata.publishedAt.toLocaleString(DateTime.DATETIME_FULL)}</div>
+<div className="text-sm font-light">on {metadata.publishedAt.toLocaleString(DateTime.DATETIME_MED)}</div>
 </div>
 
 Newton's first law applies to human behavior just much as it does to moving

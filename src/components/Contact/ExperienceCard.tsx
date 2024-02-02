@@ -33,6 +33,8 @@ export function ExperienceCard({
           src={imageURL}
         />
       </div>
+
+      <div></div>
     </div>
   );
 }

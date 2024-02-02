@@ -20,7 +20,7 @@ function ContactDetails() {
     {
       icon: <span className="material-symbols-outlined">mail</span>,
       name: "Email",
-      url: atob("bWFpbHRvOmFiaGlzaGVrY2hhZGhhMjM1QGdtYWlsLmNvbQ=="),
+      url: "mailto:abhishekchadha@me.com",
     },
   ];
   return (

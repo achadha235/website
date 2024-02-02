@@ -60,25 +60,24 @@ export function Experience() {
   }
 
   return (
-    <div className="relative h-[calc(100lvh-56px)] w-screen flex flex-col justify-start items-center p-4 pt-0 from-transparent to-base-100 bg-gradient-to-t">
-      <div className="max-w-4xl flex-shrink  h-fit text-base leading-relaxed py-6">
+    <div className="relative h-[calc(100lvh-56px)]  min-h-[700px] w-screen flex flex-col justify-start items-center p-4 from-transparent to-base-100 bg-gradient-to-t gap-8 pt-8">
+      <div className="max-w-4xl flex-shrink  h-fit text-lg leading-relaxed">
         <div
           style={{
             maxInlineSize: "100ch",
             textWrap: "balance",
           }}
-          className="h-full font-light text-center py-2 my-auto"
+          className="h-full font-light text-center px-auto  max-w-fit my-auto"
         >
-          I'm a <b>full-stack engineer</b> from New Delhi, India. Since 2012,
-          I've had the opportunity to work on awesome products with world-class
-          teams. <span>oopen</span>
+          I'm a <b>full-stack software engineer</b> with over a decade of
+          experience working on innovative products with world-class teams.
         </div>
       </div>
 
       <div
         className={clsx(
           "relative flex-grow grid gap-4",
-          "w-full max-w-4xl mx-auto py-4",
+          "w-full max-w-4xl mx-auto",
           "grid-cols-2 grid-rows-5 sm:max-w-xl md:sm:max-w-4xl",
           "md:grid-cols-3 md:grid-rows-3"
         )}
@@ -151,7 +150,7 @@ export function Experience() {
             </div>
             <motion.div
               className={clsx(
-                "max-w-2xl prose prose-base mx-auto py-10 px-4 transition-all mt-0",
+                "max-w-2xl prose prose-base mx-auto py-10 px-4 transition-all mt-0 pb-72",
                 {
                   "opacity-0 mt-3": !showContent,
                 }

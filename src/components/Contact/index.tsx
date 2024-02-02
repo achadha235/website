@@ -61,23 +61,26 @@ export function Contact() {
   }
 
   return (
-    <div className="relative h-[calc(100lvh-56px)] w-screen flex flex-col justify-center items-center p-4 pt-0 from-transparent to-bg-base-100 bg-gradient-to-t">
+    <div className="relative h-[calc(100lvh-56px)]  min-h-[300px] w-screen flex flex-col justify-center items-center p-4 pt-0 from-transparent to-bg-base-100 bg-gradient-to-t">
       <div className="max-w-4xl flex-shrink  h-fit text-base leading-relaxed py-6">
         <div
           style={{
             maxInlineSize: "100ch",
             textWrap: "balance",
           }}
-          className="h-full text-4xl font-bold text-center py-2 my-auto"
+          className="h-full text-4xl text-start py-2 my-auto flex flex-col items-start justify-center gap-2 bg-primary text-primary-content p-4 font-light shadow-lg"
         >
-          Let's talk!
+          <span className="material-symbols-outlined text-6xl mx-auto">
+            forum
+          </span>{" "}
+          Got an idea?
+          <b className="font-bold">Let's talk!</b>
         </div>
       </div>
-
       <div
         className={clsx(
           "relative flex-grow grid gap-4",
-          "w-full max-w-sm max-h-[36vh] mx-auto py-4",
+          "w-full max-w-sm max-h-[36vh] min-h-[200px] mx-auto py-4",
           "grid-cols-1 grid-rows-2"
         )}
       >
@@ -85,11 +88,11 @@ export function Contact() {
           <div className="w-full h-full bg-base-100 p-8 flex flex-col gap-2 items-start justify-center hover:bg-base-200 transition-all cursor-pointer shadow-md">
             <div className="flex items-center gap-2">
               <span className="material-symbols-outlined text-2xl">mail</span>
-              <div className="text-xl font-bold">Email Me</div>
+              <div className="text-xl font-bold">Email</div>
             </div>
 
-            <p className="text-xs font-light">
-              I will usually get back to you within 48 hours.
+            <p className="text-base font-light">
+              I'll usually respond within 48 hours.
             </p>
           </div>
         </Link>
@@ -101,7 +104,7 @@ export function Contact() {
               <div className="text-xl font-bold">Schedule a meeting</div>
             </div>
 
-            <p className="text-xs font-light">
+            <p className="text-base font-light">
               Find a time on my calendar to meet.
             </p>
           </div>

@@ -16,7 +16,7 @@ const item = { hidden: { opacity: 0 }, show: { opacity: 1 } };
 export function Splash({}) {
   return (
     <motion.div
-      className="h-svh mx-auto flex flex-col justify-center items-center p-4 backdrop-blur-md"
+      className="h-svh min-h-[400px] mx-auto flex flex-col justify-center items-center p-4 backdrop-blur-md"
       variants={container}
       initial="hidden"
       animate="show"
@@ -28,7 +28,7 @@ export function Splash({}) {
             maxInlineSize: "20ch",
             backgroundBlendMode: "color-burn",
           }}
-          className="text-4xl max-w-xl leading-tight p-4 text-base-content"
+          className="text-5xl max-w-xl leading-tight p-4 text-base-content"
           variants={item}
         >
           Hey there!{" "}

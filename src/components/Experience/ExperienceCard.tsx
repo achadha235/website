@@ -18,7 +18,7 @@ export function ExperienceCard({
     <div
       onClick={onClick}
       className={clsx(
-        "relative select-none bg-base-300 overscroll-none flex justify-center items-start shadow-lg overflow-hidden max-w-80",
+        "relative rounded-lg select-none bg-base-300 overscroll-none flex justify-center items-start shadow-lg overflow-hidden max-w-80",
         className
       )}
     >
@@ -33,6 +33,9 @@ export function ExperienceCard({
           src={imageURL}
         />
       </div>
+      <span className="material-symbols-outlined absolute bottom-2 right-1 opacity-70">
+        arrow_forward_ios
+      </span>
     </div>
   );
 }

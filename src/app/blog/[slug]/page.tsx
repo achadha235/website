@@ -1,4 +1,6 @@
 import { loadArticle, getArticles } from "@/app/blog/utils";
+import BackButton from "@/components/BackButton";
+import { Metadata } from "next";
 
 export const dynamic = "force-static";
 export const dynamicParams = false;
@@ -8,10 +10,22 @@ export async function generateStaticParams() {
   return articlePaths.map(({ slug }) => ({ slug }));
 }
 
+export async function generateMetadata(
+  { params, searchParams },
+  parent
+): Promise<Metadata> {
+  const result = await loadArticle(params.slug + ".mdx");
+  return {
+    title: result.metadata.title,
+    description: result.metadata.banner,
+    icons: ["/logo.svg"],
+  };
+}
+
 async function PostLayout({ children }) {
   return (
     <div className=" h-fit prose prose-lg prose-p:py-1 max-w-full mx-auto prose-headings:py-2 overflow-scroll">
-      <div className="max-w-3xl mx-auto bg-base-300 bg-opacity-80 p-6">
+      <div className="max-w-3xl mx-auto bg-base-100 bg-opacity-90 p-6">
         {children}
       </div>
     </div>
