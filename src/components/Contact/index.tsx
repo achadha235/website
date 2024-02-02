@@ -68,7 +68,7 @@ export function Contact() {
             maxInlineSize: "100ch",
             textWrap: "balance",
           }}
-          className="h-full text-4xl text-start py-2 my-auto flex flex-col items-start justify-center gap-2 bg-primary border border-secondary text-primary-content p-4 font-light shadow-lg"
+          className="h-full text-4xl text-start py-2 my-auto flex flex-col items-start justify-center gap-2 bg-primary text-primary-content p-4 font-light shadow-lg rounded-box"
         >
           <span className="material-symbols-outlined text-6xl mx-auto">
             forum
@@ -85,7 +85,7 @@ export function Contact() {
         )}
       >
         <Link href="mailto:abhishekchadha@me.com" target="_blank">
-          <div className="w-full h-full bg-base-100 p-8 flex flex-col gap-2 items-start justify-center hover:bg-base-200 transition-all cursor-pointer shadow-md">
+          <div className="w-full h-full bg-base-100 p-8 flex flex-col gap-2 items-start justify-center hover:bg-base-200 rounded-btn transition-all cursor-pointer shadow-md">
             <div className="flex items-center gap-2">
               <span className="material-symbols-outlined text-2xl">mail</span>
               <div className="text-xl font-bold">Email</div>
@@ -98,7 +98,7 @@ export function Contact() {
         </Link>
 
         <Link href="https://calendly.com/abhishekchadha/30min" target="_blank">
-          <div className="w-full h-full bg-base-100 p-8 flex flex-col gap-2 items-start justify-center hover:bg-base-200 transition-all cursor-pointerr shadow-md">
+          <div className="w-full h-full bg-base-100 p-8 flex flex-col gap-2 items-start justify-center hover:bg-base-200 transition-all cursor-pointerr shadow-md rounded-btn">
             <div className="flex items-center gap-2">
               <span className="material-symbols-outlined text-2xl">event</span>
               <div className="text-xl font-bold">Schedule a meeting</div>

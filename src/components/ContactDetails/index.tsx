@@ -24,7 +24,7 @@ function ContactDetails() {
     },
   ];
   return (
-    <div className="grid grid-cols-4 grid-rows-1 gap-4">
+    <div className="grid grid-cols-4 grid-rows-1 gap-4  bg-base-100 bg-opacity-30 backdrop-blur-sm rounded-btn">
       {details.map(({ icon, name, url }, i) => {
         return (
           <a
@@ -32,7 +32,7 @@ function ContactDetails() {
             {...(url ? { href: url as string } : {})}
             href={url}
             target="_blank"
-            className=" btn btn-lg text-[2rem] no-underline outline-none"
+            className=" btn btn-ghost btn-lg text-[2rem] no-underline outline-none"
           >
             <span className="px-4 flex justify-center items-center gap-2">
               {icon}

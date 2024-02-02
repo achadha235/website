@@ -30,7 +30,7 @@ export function Navbar({ theme, onToggleClicked }) {
         relative: !isSticky,
       })}
     >
-      <Link href="/" className="btn hover:bg-base-100 btn-ghost text-xl">
+      <Link href="/" className="px-4 text-xl">
         {/* <img src="/logo.svg" alt="logo" className="w-8 h-8" /> */}
         <Logo color={logoColor} className="w-8 h-8" />
       </Link>
