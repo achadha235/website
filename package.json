@@ -19,7 +19,7 @@
         "clsx": "^2.0.0",
         "colorjs.io": "^0.4.5",
         "cookies-next": "^4.1.1",
-        "daisyui": "^4.4.14",
+        "daisyui": "^3.9.4",
         "framer-motion": "^10.16.9",
         "lodash": "^4.17.21",
         "luxon": "^3.4.4",

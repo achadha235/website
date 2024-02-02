@@ -6,7 +6,7 @@ import clsx from "clsx";
 import Color from "colorjs.io";
 import { useReducedMotion } from "framer-motion";
 
-function themeRoot() {
+export function themeRoot() {
   if (typeof document === "undefined") {
     return;
   }
@@ -19,7 +19,7 @@ export function getThemeColorHex(varName) {
     return "#ffffff";
   }
   const oklchCol = getComputedStyle(root).getPropertyValue(varName);
-  return new Color(`oklch(${oklchCol})`).to("sRGB").toString({ format: "hex" });
+  return new Color(`hsl(${oklchCol})`).to("sRGB").toString({ format: "hex" });
 }
 
 function getGradientColors() {

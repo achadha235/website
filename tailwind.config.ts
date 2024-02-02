@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 import themes from "./themes";
-// import themes from "./themes.js";
+import daisyThemes from "daisyui/src/theming/themes";
+import { pick } from "lodash";
 
 const config: Config = {
   content: [
@@ -19,7 +20,32 @@ const config: Config = {
     require("daisyui"),
   ],
   daisyui: {
-    themes,
+    themes: [
+      ...themes, // This is the original themes array
+      {
+        customblack: {
+          ...daisyThemes["[data-theme=black]"],
+          ...pick(daisyThemes["[data-theme=coffee]"], [
+            "primary",
+            "secondary",
+            "accent",
+          ]),
+          "--btn-text-case": "lowercase",
+        },
+      },
+
+      {
+        customlight: {
+          ...daisyThemes["[data-theme=lofi]"],
+          ...pick(daisyThemes["[data-theme=coffee]"], [
+            "primary",
+            "secondary",
+            "accent",
+          ]),
+          "--btn-text-case": "lowercase",
+        },
+      },
+    ],
   },
 };
 export default config;

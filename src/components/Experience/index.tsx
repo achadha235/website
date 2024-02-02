@@ -1,12 +1,11 @@
 "use client";
 
-import { use, useEffect, useRef, useState } from "react";
-import { ExperienceCard } from "./ExperienceCard";
-import { experience } from "./experience";
-import Link from "next/link";
 import clsx from "clsx";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { useEventListener, useWindowSize } from "usehooks-ts";
+import { useRef, useState } from "react";
+import { useEventListener } from "usehooks-ts";
+import { ExperienceCard } from "./ExperienceCard";
+import { experience } from "./experience";
 
 export var stopAllYouTubeVideos = () => {
   var iframes = document.querySelectorAll("iframe");
@@ -61,7 +60,7 @@ export function Experience() {
   }
 
   return (
-    <div className="relative h-[calc(100lvh-56px)] w-screen flex flex-col justify-start items-center p-4 pt-0 bg-base-100">
+    <div className="relative h-[calc(100lvh-56px)] w-screen flex flex-col justify-start items-center p-4 pt-0 from-transparent to-base-100 bg-gradient-to-t">
       <div className="max-w-4xl flex-shrink  h-fit text-base leading-relaxed py-6">
         <div
           style={{
@@ -115,7 +114,7 @@ export function Experience() {
             key="modal"
             transition={{
               ease: "backInOut",
-              duration: reducedMotion ? 0 : 0.4,
+              duration: reducedMotion ? 0 : 0.6,
             }}
             initial={{
               opacity: 0,

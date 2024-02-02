@@ -1,8 +1,6 @@
 "use client";
 import ContactDetails from "@/components/ContactDetails";
 import { motion } from "framer-motion";
-import { getThemeColorHex } from "./GradientCanvas";
-import Color from "colorjs.io";
 
 const container = {
   hidden: { opacity: 0 },
@@ -23,14 +21,14 @@ export function Splash({}) {
       initial="hidden"
       animate="show"
     >
-      <div className="bg-base-100 rounded-btn bg-opacity-50">
+      <div className="bg-base-100 rounded-btn bg-opacity-40 ">
         <motion.div
           style={{
             textWrap: "balance",
             maxInlineSize: "20ch",
             backgroundBlendMode: "color-burn",
           }}
-          className="text-5xl max-w-xl leading-tight p-4 text-base-content"
+          className="text-4xl max-w-xl leading-tight p-4 text-base-content"
           variants={item}
         >
           Hey there!{" "}

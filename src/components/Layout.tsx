@@ -1,15 +1,15 @@
 "use client";
 
+import themes, { defaultTheme } from "@/themes";
 import { getCookie, setCookie } from "cookies-next";
 import { AnimatePresence, motion } from "framer-motion";
 import { isNil } from "lodash";
 import { AppProgressBar as ProgressBar } from "next-nprogress-bar";
 import { usePathname } from "next/navigation";
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useEventListener, useIsClient, useMediaQuery } from "usehooks-ts";
 import { Navbar } from "../components/Navbar";
 import GradientCanvas, { getThemeColorHex } from "./GradientCanvas";
-import themes from "@/themes";
 
 interface LayoutProps {
   children?: any;
@@ -20,12 +20,18 @@ interface LayoutProps {
 
 const themeList = themes;
 const maxAge = 60 * 60 * 399;
-function Layout({ theme, children, className, showNav = true }: LayoutProps) {
+
+function Layout({ theme, children, showNav = true }: LayoutProps) {
   const pathName = usePathname();
   const isClient = useIsClient();
   const prefersLightTheme = useMediaQuery("(prefers-color-scheme: light)");
+
   if (isNil(theme)) {
-    setCookie("theme", prefersLightTheme ? "winter" : "coffee", { maxAge });
+    setCookie(
+      "theme",
+      prefersLightTheme ? defaultTheme.light : defaultTheme.dark,
+      { maxAge }
+    );
   }
   const [currentTheme, setCurrentTheme] = useState(
     theme || getCookie("theme") || "dark"
@@ -34,6 +40,7 @@ function Layout({ theme, children, className, showNav = true }: LayoutProps) {
   const [progressBarColor, setProgressBarColor] = useState(
     getThemeColorHex("--a")
   );
+
   useEffect(() => {
     setProgressBarColor(getThemeColorHex("--p"));
   }, [currentTheme]);
@@ -50,6 +57,13 @@ function Layout({ theme, children, className, showNav = true }: LayoutProps) {
     setCookie("theme", currentTheme, { maxAge });
   }, [currentTheme]);
 
+  const toggleTheme = () => {
+    if (currentTheme === defaultTheme.dark) {
+      setCurrentTheme(defaultTheme.light);
+    } else {
+      setCurrentTheme(defaultTheme.dark);
+    }
+  };
   return (
     <div data-theme={currentTheme} id="layout">
       {isClient && (
@@ -64,18 +78,7 @@ function Layout({ theme, children, className, showNav = true }: LayoutProps) {
         className="fixed top-0 left-0 z-0"
         id={"gradient-canvas"}
       />
-      {showNav && (
-        <Navbar
-          onToggleClicked={() => {
-            if (currentTheme === "coffee") {
-              setCurrentTheme("winter");
-            } else {
-              setCurrentTheme("coffee");
-            }
-          }}
-          theme={currentTheme}
-        />
-      )}
+      {showNav && <Navbar onToggleClicked={toggleTheme} theme={currentTheme} />}
       <AnimatePresence key={pathName} mode={"wait"}>
         <motion.div
           viewport={{ once: true }}
@@ -91,6 +94,7 @@ function Layout({ theme, children, className, showNav = true }: LayoutProps) {
 }
 
 const pageAnimations = {
+  fallbackStyle: { opacity: 1, y: 0 },
   initial: { opacity: 0, y: -5 },
   animate: { opacity: 1, y: 0 },
   exit: {

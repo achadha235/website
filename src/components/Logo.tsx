@@ -1,4 +1,4 @@
-export default function Logo({ color = "white", className }) {
+export default function Logo({ color = "rgb(255, 0, 0)", className }) {
   return (
     <svg
       className={className}

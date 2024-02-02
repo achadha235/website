@@ -24,7 +24,7 @@ export function Navbar({ theme, onToggleClicked }) {
 
   return (
     <div
-      className={clsx("navbar z-50 gap-2 bg-base-300 shadow-sm", {
+      className={clsx("navbar z-50 gap-2 bg-base-300 bg-opacity-95 shadow-sm", {
         "fixed top-0": isSticky,
         relative: !isSticky,
       })}
@@ -38,8 +38,7 @@ export function Navbar({ theme, onToggleClicked }) {
           href="/"
           as={"/"}
           className={clsx("btn hover:bg-base-100 btn-ghost w-full", {
-            "bg-base-100 bg-opacity-90 outline outline-base-content":
-              pathName === "/",
+            "bg-base-100 bg-opacity-90": pathName === "/",
           })}
         >
           About Me
@@ -48,8 +47,7 @@ export function Navbar({ theme, onToggleClicked }) {
         <Link href="/blog" as={"/blog"}>
           <div
             className={clsx("btn hover:bg-base-100 btn-ghost w-full", {
-              " bg-base-100 bg-opacity-90 outline outline-base-content":
-                pathName.startsWith("/blog"),
+              " bg-base-100 bg-opacity-90": pathName.startsWith("/blog"),
             })}
           >
             Blog
@@ -62,7 +60,7 @@ export function Navbar({ theme, onToggleClicked }) {
           <input
             type="checkbox"
             checked={theme === "coffee"}
-            onClick={onToggleClicked}
+            onChange={onToggleClicked}
           />
 
           {/* sun icon */}

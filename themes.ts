@@ -1,5 +1,13 @@
-// List of the included themes with DaisyUI
+export const defaultTheme = {
+  dark: "customblack",
+  light: "customlight",
+};
+
 const themes = [
+  "customblack",
+  "customlight",
+  "coffee",
+  "winter",
   "synthwave",
   "retro",
   "cyberpunk",
@@ -21,8 +29,6 @@ const themes = [
   "acid",
   "lemonade",
   "night",
-  "coffee",
-  "winter",
   "dim",
   "nord",
   "sunset",
