@@ -49,3 +49,14 @@ html {
     font-size: 18px;
   }
 }
+
+.snap-container {
+  scroll-snap-type: proximity;
+  scroll-snap-points-y: 100svh, 100lvh, 100lvh;
+  scroll-snap-type: y proximity;
+  scroll-padding: 58px;
+}
+
+.snap-page {
+  scroll-snap-align: center;
+}

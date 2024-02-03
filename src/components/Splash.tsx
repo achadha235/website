@@ -16,7 +16,7 @@ const item = { hidden: { opacity: 0 }, show: { opacity: 1 } };
 export function Splash({}) {
   return (
     <motion.div
-      className="h-svh min-h-[400px] mx-auto flex flex-col justify-center items-center p-4 backdrop-blur-md"
+      className="snap-page h-svh min-h-[400px] mx-auto flex flex-col justify-center items-center p-4 backdrop-blur-md"
       variants={container}
       initial="hidden"
       animate="show"

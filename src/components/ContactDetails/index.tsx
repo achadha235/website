@@ -20,7 +20,7 @@ function ContactDetails() {
     {
       icon: <span className="material-symbols-outlined">mail</span>,
       name: "Email",
-      url: "mailto:abhishekchadha@me.com",
+      url: "mailto:hello@achadha.com",
     },
   ];
   return (

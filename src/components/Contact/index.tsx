@@ -2,11 +2,9 @@
 
 import clsx from "clsx";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import Link from "next/link";
 import { useRef, useState } from "react";
 import { useEventListener } from "usehooks-ts";
-import { ExperienceCard } from "./ExperienceCard";
-import { experience } from "./experience";
-import Link from "next/link";
 
 export var stopAllYouTubeVideos = () => {
   var iframes = document.querySelectorAll("iframe");
@@ -61,7 +59,7 @@ export function Contact() {
   }
 
   return (
-    <div className="relative h-[calc(100lvh-56px)]  min-h-[300px] w-screen flex flex-col justify-center items-center p-4 pt-0 from-transparent to-bg-base-100 bg-gradient-to-t">
+    <div className="snap-page relative h-[calc(100lvh-56px)]  min-h-[300px] w-screen flex flex-col justify-center items-center p-4 pt-0 from-transparent to-bg-base-100 bg-gradient-to-t">
       <div className="max-w-4xl flex-shrink  h-fit text-base leading-relaxed py-6">
         <div
           style={{
@@ -84,7 +82,7 @@ export function Contact() {
           "grid-cols-1 grid-rows-2"
         )}
       >
-        <Link href="mailto:abhishekchadha@me.com" target="_blank">
+        <Link href="mailto:hello@achadha.com" target="_blank">
           <div className="w-full h-full bg-base-100 p-8 flex flex-col gap-2 items-start justify-center hover:bg-base-200 rounded-btn transition-all cursor-pointer shadow-md">
             <div className="flex items-center gap-2">
               <span className="material-symbols-outlined text-2xl">mail</span>

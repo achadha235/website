@@ -60,7 +60,7 @@ export function Experience() {
   }
 
   return (
-    <div className="relative h-[calc(100lvh-56px)]  min-h-[700px] w-screen flex flex-col justify-start items-center p-4 from-transparent to-base-100 bg-gradient-to-t gap-8 pt-8">
+    <div className="snap-page relative h-[calc(100lvh-56px)]  min-h-[700px] w-screen flex flex-col justify-start items-center p-4 from-transparent to-base-100 bg-gradient-to-t gap-8 pt-8">
       <div className="max-w-4xl flex-shrink  h-fit text-lg leading-relaxed">
         <div
           style={{
