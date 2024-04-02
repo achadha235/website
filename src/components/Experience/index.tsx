@@ -6,6 +6,7 @@ import { useRef, useState } from "react";
 import { useEventListener } from "usehooks-ts";
 import { ExperienceCard } from "./ExperienceCard";
 import { experience } from "./experience";
+import { IconX } from "@tabler/icons-react";
 
 export var stopAllYouTubeVideos = () => {
   var iframes = document.querySelectorAll("iframe");
@@ -146,7 +147,7 @@ export function Experience() {
                 "fixed top-2 right-2 text-4xl btn btn-primary btn-circle"
               )}
             >
-              <span className="material-symbols-outlined">close</span>
+              <IconX />
             </div>
             <motion.div
               className={clsx(

@@ -2,6 +2,7 @@
 import clsx from "clsx";
 import Image from "next/image";
 import { MouseEventHandler } from "react";
+import { IconArrowBadgeRight } from "@tabler/icons-react";
 
 export function ExperienceCard({
   className,
@@ -33,9 +34,7 @@ export function ExperienceCard({
           src={imageURL}
         />
       </div>
-      <span className="material-symbols-outlined absolute bottom-2 right-1 opacity-70">
-        arrow_forward_ios
-      </span>
+      <IconArrowBadgeRight className="absolute bottom-2 right-1 opacity-70" />
     </div>
   );
 }

@@ -1,24 +1,29 @@
-import { useRef, useEffect, MutableRefObject } from "react";
+import {
+  IconBrandX,
+  IconBrandGithub,
+  IconBrandLinkedin,
+  IconMail,
+} from "@tabler/icons-react";
 
 function ContactDetails() {
   const details = [
     {
-      icon: <i aria-hidden className="fa-brands fa-linkedin" />,
+      icon: <IconBrandLinkedin size={42} />,
       name: "LinkedIn",
       url: "https://www.linkedin.com/in/abhishek-chadha-53b09364/",
     },
     {
-      icon: <i aria-hidden className="fa-brands fa-github" />,
+      icon: <IconBrandGithub size={42} />,
       name: "GitHub",
       url: "http://github.com/achadha235",
     },
     {
-      icon: <i aria-hidden className="fa-brands fa-twitter" />,
-      name: "LinkedIn",
+      icon: <IconBrandX size={42} />,
+      name: "Twitter",
       url: "http://twitter.com/achadha235",
     },
     {
-      icon: <span className="material-symbols-outlined">mail</span>,
+      icon: <IconMail size={42} />,
       name: "Email",
       url: "mailto:hello@achadha.com",
     },
