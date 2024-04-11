@@ -2,7 +2,7 @@
 
 import clsx from "clsx";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useEventListener } from "usehooks-ts";
 import { ExperienceCard } from "./ExperienceCard";
 import { experience } from "./experience";
@@ -18,7 +18,7 @@ export var stopAllYouTubeVideos = () => {
   });
 };
 
-export function Experience() {
+export function Experience({ experience: curr }: { experience: string }) {
   const [currentExperience, setCurrentExperience] = useState<any>(null);
   const card = useRef<any>(null);
   const animatingModal = useRef(false);
@@ -59,6 +59,17 @@ export function Experience() {
     }
     setModalOpen(isOpen);
   }
+
+  useEffect(() => {
+    const exp = experience.find((exp) => exp.id === curr);
+    if (!exp) {
+      return;
+    }
+    (async () => {
+      setCurrentExperience(await exp.article);
+      setModalOpen(true);
+    })();
+  }, [curr]);
 
   return (
     <div className="snap-page relative h-[calc(100lvh-56px)]  min-h-[700px] w-screen flex flex-col justify-start items-center p-4 from-transparent to-base-100 bg-gradient-to-t gap-8 pt-8">
